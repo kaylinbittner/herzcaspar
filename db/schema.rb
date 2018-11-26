@@ -10,10 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_154343) do
+ActiveRecord::Schema.define(version: 2018_11_26_155552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "drivers", force: :cascade do |t|
+    t.bigint "buddy_id"
+    t.bigint "coordinator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buddy_id"], name: "index_drivers_on_buddy_id"
+    t.index ["coordinator_id"], name: "index_drivers_on_coordinator_id"
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.text "bio"
+    t.string "area"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.bigint "buddy_id"
+    t.bigint "coordinator_id"
+    t.bigint "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buddy_id"], name: "index_matches_on_buddy_id"
+    t.index ["coordinator_id"], name: "index_matches_on_coordinator_id"
+    t.index ["patient_id"], name: "index_matches_on_patient_id"
+  end
+
+  create_table "user_interests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "interest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["interest_id"], name: "index_user_interests_on_interest_id"
+    t.index ["user_id"], name: "index_user_interests_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +59,22 @@ ActiveRecord::Schema.define(version: 2018_11_26_154343) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.date "date_of_birth"
+    t.string "role"
+    t.string "phone"
+    t.string "gender"
+    t.string "city"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "drivers", "users", column: "buddy_id"
+  add_foreign_key "drivers", "users", column: "coordinator_id"
+  add_foreign_key "matches", "users", column: "buddy_id"
+  add_foreign_key "matches", "users", column: "coordinator_id"
+  add_foreign_key "matches", "users", column: "patient_id"
+  add_foreign_key "user_interests", "interests"
+  add_foreign_key "user_interests", "users"
 end
