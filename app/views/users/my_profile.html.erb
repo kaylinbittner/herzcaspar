@@ -1,1 +1,10 @@
-<%= image_tag @user.photo.url(:bright_face), class: "avatar" %>
+<div class="profile-infos">
+  <%= render 'shared/banner' %>
+  <% if @user.photo.present? %>
+    <%= image_tag @user.photo.url(:bright_face), class: "avatar" %>
+  <% else %>
+    <div class="avatar-placeholder">
+      <h1><%= @user.first_name.first.upcase %><%= @user.last_name.first.upcase %></h1>
+    </div>
+  <% end %>
+</div>

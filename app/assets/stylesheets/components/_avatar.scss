@@ -1,5 +1,43 @@
 .avatar {
+  position: absolute;
+  bottom: -74px;
+  left: 20px;
   height: 250px;
   width: 250px;
   border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 1);
+}
+
+.avatar-placeholder {
+  position: absolute;
+  bottom: -74px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 1);
+  background-color: gray;
+  h1 {
+    font-size: 80px;
+    margin: 0;
+  }
+}
+
+.avatar-placeholder-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-color: gray;
+  h1 {
+    font-size: 24px;
+    margin: 0;
+  }
 }
