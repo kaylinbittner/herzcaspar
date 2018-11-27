@@ -1,2 +1,14 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<div id="calendar"></div>
+<script>
+$('#calendar').fullCalendar({
+  events: [
+    {
+      title  : 'event1',
+      start  : '2018-11-27'
+    }
+  ]
+});
+defaultView: 'listWeek';
+</script>
