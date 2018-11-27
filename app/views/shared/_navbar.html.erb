@@ -18,9 +18,9 @@
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <% if current_user.photo.present? %>
-            <%= image_tag current_user.photo.url(:bright_face), class: "avatar dropdown-toggle", id: "navbar-wagon-menu" %>
+            <%= image_tag current_user.photo.url(:bright_face), class: "avatar-navbar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
-            <div class="avatar-placeholder-navbar dropdown-toggle" id="navbar-wagon-menu">
+            <div class="avatar-placeholder-navbar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
               <h1>
                 <%= current_user.first_name.first.upcase %><%= current_user.last_name.first.upcase %>
               </h1>
