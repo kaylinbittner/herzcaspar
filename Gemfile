@@ -16,9 +16,9 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'fullcalendar-rails'
-gem 'momentjs-rails'
 gem 'jquery-rails'
+gem 'momentjs-rails'
+gem 'fullcalendar-rails'
 
 
 gem 'cloudinary', '~> 1.9.1'

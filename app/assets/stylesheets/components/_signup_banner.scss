@@ -1,4 +1,3 @@
-
 .signup-container {
   height: 100%;
 }
@@ -20,6 +19,7 @@
 .home-header {
   color: #7BBBE3;
 }
+
 .signupb{
   justify-content:flex-end;
 
@@ -36,7 +36,7 @@
   align-items: flex-end;
 }
 
-.form{
+.registration-form{
   width: 30vw;
   padding: 0px;
   margin: 1 !important;
@@ -46,26 +46,17 @@
   float : right;
 }
 
-
-.form-control {
-  border-radius: 25px;
-}
-
-
-.btn-s {
-  text-align: center;
-}
-
-
 ::placeholder {
   color: #343433 !important;
   background-color: transparent;
 }
+
 .blue-circle{
-  background-color:$light-blue !important;
+  background-color: $light-blue !important;
 }
 
 .circles{
+  display: flex;
   width:100%;
   justify-content: center;
   margin-right:15px;
@@ -83,59 +74,10 @@
   // vertical-align: center;
   text-align: center;
   right: 10px;
-  margin-right:15px;
   // margin-right: 300px;
   // margin-top: -30px
 }
 
-
-.circle-2{
-  position: relative;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  color: $dark-gray;
-  background-color: $light-gray;
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+.circle-margin{
   margin-right:15px;
-  // position: Absolute;
-  right: 10px;
-  // margin-right: 230px;
-  // margin-top: -30px
 }
-
-.circle-3{
-  position: relative;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  color: $dark-gray;
-  background-color: $light-gray;
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  // position: Absolute;
-  right: 10px;
-  // margin-right: 160px;
-  // margin-top: -30px
-}
-
-
-
-.flex {
-  display: flex;
-}
-.item {
-  width: 100%;
-}
-
-.square {
-  width: 100%;
-  opacity: 0.1;
-  height: 130vh;
-  margin-right: 280px;
-  justify-content: flex-end
-}
-
