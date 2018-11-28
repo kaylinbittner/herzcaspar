@@ -4,6 +4,7 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :user_interests, :posts
+  has_many :user_interests
+  has_many :posts
   has_many :interests, through: :user_interests
 end
