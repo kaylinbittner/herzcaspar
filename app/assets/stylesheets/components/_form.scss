@@ -1,13 +1,30 @@
-.form-form{
-    width: 60%;
+.form{
+    width: 30%;
     padding: 0px;
     margin: 100px ;
     box-sizing: border-box;
-    font-family: Helvetica;
     text-decoration: none;
-    color: #FD7A7A;
-
+    background-color: #4E4E4E;
+    text-align: center;
+    float : right;
+    // margin-top: 40%;
+    // margin-bottom: 40%
 }
 
-.btn-s
-.btn-s:hover
+.form-control {
+    border-radius: 25px;
+  }
+
+
+.btn-s {
+     text-align: center;
+}
+
+
+::placeholder {
+  color: #343433 !important;
+  background-color: transparent;
+}
+
+
+
