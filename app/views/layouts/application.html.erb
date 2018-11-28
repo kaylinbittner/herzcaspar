@@ -6,9 +6,9 @@
     <title>HerzCaspar</title>
     <%= favicon_link_tag 'https://res.cloudinary.com/dqssam2go/image/upload/v1543318354/logo.png', :rel => 'icon', :type =>  'image/png' %>
     <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js' %>
     <%= javascript_include_tag 'application' %>
-    <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto:300,400" rel="stylesheet">
