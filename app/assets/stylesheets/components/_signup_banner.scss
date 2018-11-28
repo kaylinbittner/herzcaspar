@@ -7,12 +7,12 @@
   height: 130vh;
   background-size: cover;
   position: relative;
+  display: flex;
 }
 
 .join-main-header {
   // position: Absolute;
   right: 8px;
-  margin-right: 200px;
   margin-top: 30px;
   text-align: center;
 }
@@ -33,17 +33,22 @@
   height:130vh;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .registration-form{
   width: 30vw;
   padding: 0px;
-  margin: 1 !important;
+  margin: 1px !important;
+  margin-right: 20px;
   box-sizing: border-box;
   text-decoration: none;
   text-align: center;
+  justify-content: center;
   float : right;
+  .form-control {
+    border-radius: 25px;
+  }
 }
 
 ::placeholder {
