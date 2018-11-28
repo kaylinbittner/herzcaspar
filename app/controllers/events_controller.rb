@@ -3,9 +3,8 @@ class EventsController < ApplicationController
     @data = []
     @events = Event.all
     @events.each do |e|
-    @data << { title: e.title, start: e.start, end: e.end, description: e.description, location: e.location }
+      @data << { title: e.title, start: e.start, end: e.end, description: e.description, location: e.location }
     end
-    return @data
   end
 
   def show
@@ -14,13 +13,14 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new()
+    # @event.build_user_events
   end
 
   def create
     @event = Event.new(event_params)
     @event.coordinator_id = current_user.id
     if @event.save
-      redirect_to events_path
+      redirect_to my_profile_path
     else
     end
 
