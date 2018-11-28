@@ -65,6 +65,14 @@ ActiveRecord::Schema.define(version: 2018_11_27_151728) do
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_user_events_on_event_id"
     t.index ["user_id"], name: "index_user_events_on_user_id"
+
+  create_table "posts", force: :cascade do |t|
+    t.json "pictures"
+    t.text "content"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "user_interests", force: :cascade do |t|
@@ -104,6 +112,7 @@ ActiveRecord::Schema.define(version: 2018_11_27_151728) do
   add_foreign_key "matches", "users", column: "patient_id"
   add_foreign_key "user_events", "events"
   add_foreign_key "user_events", "users"
+  add_foreign_key "posts", "users"
   add_foreign_key "user_interests", "interests"
   add_foreign_key "user_interests", "users"
 end

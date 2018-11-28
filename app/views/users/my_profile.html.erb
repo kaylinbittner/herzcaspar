@@ -8,3 +8,52 @@
     </div>
   <% end %>
 </div>
+
+  <div id="accordion">
+    <div class="accordion">
+      <input type="radio" name="radacc" class="accordian-chk" />
+      <h3 class="accordian-header active">
+        Interests
+        <span class="acc-icon"></span>
+      </h3>
+      <div class="accordian-content" tabindex="2">
+        <form action="/flats", method='post' class="form-container">
+          <textarea name="message" placeholder="Placeholder" rows="3" cols="90" class="text-area"></textarea>
+          <label class="label" for="city">CITY</label><br>
+          <input placeholder="Berlin" type="text" name="city" class="form-body"><br>
+          <input placeholder="€ 70 per/night" type="text" name="price" class="form-body"><br>
+          <input placeholder="4 people" type="text" name="guests" class="form-body"><br>
+
+          <select name="myFruit">
+            <option>Select</option>
+            <option>Cherry</option>
+            <option>Lemon</option>
+            <option>Banana</option>
+            <option>Strawberry</option>
+            <option>Apple</option>
+          </select>
+
+
+          <div class="button-form">
+            <input type="submit" value="Search" class="s-button">
+          </div>
+        </form>
+      </div>
+  </div>
+
+    <div class="accordion">
+      <input type="radio" name="radacc" class="accordian-chk" checked />
+      <h3 class="accordian-header">
+        NewsFeed
+        <span class="acc-icon"></span>
+      </h3>
+      <div class="accordian-content">
+        <p>
+        Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+        purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+        velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+        suscipit faucibus urna.
+        </p>
+      </div>
+    </div>
+  </div>
