@@ -1,7 +1,6 @@
 
 .btn-s {
   padding: 10px 20px;
-  border: 1px solid #999999;
   border-radius: 4px;
   font-family: Roboto;
   border-radius: 5px;
@@ -13,8 +12,15 @@
 
 .btn-s:hover {
   opacity: 0.8;
-  text-decoration: none;
+  text-decoration: none !important;
   color: white;
+}
+.btn-s:active {
+  text-decoration: none !important;
+}
+
+.btn-s:visited {
+  text-decoration: none !important;
 }
 
 
