@@ -5,11 +5,3 @@ class UsersController < ApplicationController
 end
 
 
- def edit
-    puts "hello from edit"
-  end
-
-  def update
-    @user.update(flat_user)
-    redirect_to @user
-  end
