@@ -98,3 +98,7 @@
     -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
+
+#test{
+  transition: all ease 1s;
+}
