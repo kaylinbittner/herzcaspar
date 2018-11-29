@@ -1,0 +1,18 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <%= simple_form_for(current_user, url: profile_path) do |f| %>
+        <%= f.input :first_name, require: true %>
+        <%= f.input :last_name, require: true %>
+        <%= f.input :gender %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+
+        <%= f.input :bio %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
