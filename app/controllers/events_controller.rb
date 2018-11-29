@@ -2,13 +2,13 @@ class EventsController < ApplicationController
   def index
     @data = []
     @events = Event.all
+    current_user.events
     @events.each do |e|
     @data << { title: e.title, start: e.start, end: e.end, description: e.description, location: e.location }
     end
   end
 
   def show
-
   end
 
   def new
