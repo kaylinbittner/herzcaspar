@@ -17,34 +17,48 @@
         <span class="acc-icon"></span>
       </h3>
       <div class="accordian-content" tabindex="2">
-        <form action="/flats", method='post' class="form-container">
-          <textarea name="message" placeholder="Placeholder" rows="3" cols="90" class="text-area"></textarea>
-          <label class="label" for="city">CITY</label><br>
-          <input placeholder="Berlin" type="text" name="city" class="form-body"><br>
-          <input placeholder="€ 70 per/night" type="text" name="price" class="form-body"><br>
-          <input placeholder="4 people" type="text" name="guests" class="form-body"><br>
 
-          <select name="myFruit">
-            <option>Select</option>
-            <option>Cherry</option>
-            <option>Lemon</option>
-            <option>Banana</option>
-            <option>Strawberry</option>
-            <option>Apple</option>
-          </select>
-
-
-          <div class="button-form">
-            <input type="submit" value="Search" class="s-button">
+        <form action="/my_profile", method='post' class="container" style="display: flex; flex-direction: column; background-color: white; border-radius: 10px;">
+          <div class="row">
+            <div class=".col-md-8 .col-md-offset-2">
+               <label class="interest-label" for="interests-form">You can update your interests below:</label><br>
+               <p style="text-align: center; margin: 0% 30%;">Let us know which activities interest you by choosing them from the categories below. Add a rating to indicate your FAVORITE acitivities and increase the accuracy of your match! </p>
+            </div>
           </div>
+
+          <div class="row">
+            <div class=".col-md-6" id="item-value">
+              <% 8.times do %>
+                <%= render'shared/interest_selector' %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class=".col-md-6" id="item-value">
+              <label for="location">Area of Residence: </label>
+              <input placeholder="Berlin" type="text" style="margin-top: 2%; border-radius: 10px;">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class=".col-md-6" id="item-value">
+              <textarea name="message" placeholder="Tell us a little more about you..." rows="2" cols="90" class="text-area" style="border-color: gray; border-radius: 10px; margin-top: 2%;"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class=".col-md-6" id="item-value">
+              <button class="btn-s" formtarget="_self" type="submit" style="margin: 2% 0%;">Submit</button>
+            </div>
+          </div>
+
         </form>
-      </div>
-  </div>
+</div>
 
     <div class="accordion">
       <input type="radio" name="radacc" class="accordian-chk" checked />
       <h3 class="accordian-header">
-        NewsFeed
+        Calendar
         <span class="acc-icon"></span>
       </h3>
       <div class="accordian-content">
