@@ -1,5 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  layout "signup", only: [:new]
+
   private
 
   def after_sign_up_path_for(resource)

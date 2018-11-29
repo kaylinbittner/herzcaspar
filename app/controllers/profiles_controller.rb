@@ -1,4 +1,7 @@
 class ProfilesController < ApplicationController
+
+  layout "signup"
+
   def edit
   end
 
@@ -14,7 +17,7 @@ class ProfilesController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:photo, :bio)
+    params.require(:user).permit(:first_name, :last_name, :age, :photo, :bio)
   end
 end
 
