@@ -3,6 +3,7 @@
 //= require rails-ujs
 //= require moment
 //= require fullcalendar
+//= require multiselect
 //= require_tree .
 
 
