@@ -1,0 +1,36 @@
+<div class="signup-container">
+  <div class="signup-banner signupb" style="background-image: url( <%=image_path('https://res.cloudinary.com/dqssam2go/image/upload/v1543399710/mike-erskine-144525-unsplash.jpg')%>);">
+    <div class="join-container">
+     <div class="circles">
+      <div class="circle circle-margin">
+        1
+      </div>
+        <div class="circle circle-margin blue-circle">
+        2
+      </div>
+
+
+    </div>
+    <h1 class="join-main-header"><strong class="home-header">Join</strong><br> the team</h1>
+    <!-- <div class="row">
+      <div class="col-xs-8"> -->
+       <div class="registration-form" >
+        <%= simple_form_for(current_user, url: profile_path) do |f| %>
+        <%= f.input :first_name, require: true, placeholder: "First Name", label: false%>
+        <%= f.input :last_name, require: true, placeholder: "Last Name", label: false %>
+        <%= f.input :gender, require: true, placeholder: "Male/Female", label: false %>
+        <%= f.input :photo, placeholder: "Photo", label: false  %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.input :bio, require: true, placeholder: "Bio", label: false %>
+        <div class="form-actions">
+          <%= f.button :submit, value= "FINISH", class: "next-button" %>
+          <% end %>
+        </div>
+       <!--  </div>
+       </div> -->
+        </div>
+     </div>
+   </div>
+ </div>
+
+

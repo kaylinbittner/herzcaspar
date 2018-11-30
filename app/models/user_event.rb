@@ -1,4 +1,5 @@
 class UserEvent < ApplicationRecord
-  belongs_to :user
+  has_many :users
   belongs_to :event
 end
+
