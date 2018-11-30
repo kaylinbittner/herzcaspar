@@ -1,4 +1,4 @@
-<div class="container" >
+<div class="container" style="padding-top: 40px;" >
   <div id="calendar"></div>
   <%= content_tag "div", id: "events", data: {events: @data} do %>
   <% end %>
@@ -15,7 +15,8 @@
         <div id="modalBody" class="modal-body"></div>
         <div id="modalLocations" class="modal-locations"></div>
         <div class="modal-footer">
-          <button type="button" class="btn-s" data-dismiss="modal">Attend</button>
+          <button type="button" class="btn-f" data-dismiss="modal">Sorry, no time</button>
+          <button type="button" class="next-button" data-dismiss="modal">Attend</button>
         </div>
       </div>
     </div>

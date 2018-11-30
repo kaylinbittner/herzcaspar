@@ -4,7 +4,7 @@
   <%= image_tag @user.photo.url(:bright_face), class: "avatar" %>
   <% else %>
   <div class="avatar-placeholder">
-    <h1><%= @user.first_name.first.upcase %><%= @user.last_name.first.upcase %></h1>
+    <h1><%= @user.email.first.upcase %></h1>
   </div>
   <% end %>
 </div>
@@ -18,9 +18,9 @@
       <span class="acc-icon"></span>
     </h3>
     <div class="accordian-content">
-      <button type="button" class="btn-s" data-toggle="modal" data-target="#eventModal">
-        Create Event
-      </button>
+      <div class="container">
+        <%= link_to 'Create event', new_event_path, class: "button-next" %>
+      </div>
       <!-- Modal -->
       <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -90,3 +90,7 @@
   </div>
   <!-- Calendar ends -->
 </div>
+
+<%#= content_for :after_js do %>
+  <%#= javascript_include_tag "events" %>
+<%# end %>

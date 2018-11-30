@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   def index
     @data = []
     @events = Event.all
-    current_user.events
+    # current_user.events
     @events.each do |e|
     @data << { title: e.title, start: e.start, end: e.end, description: e.description, location: e.location }
     end
@@ -20,7 +20,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.coordinator_id = current_user.id
     @data = []
-    if @event.save
+    if @event.save!
       participants = params[:event][:participants]
       participants.delete_at(0)
       participants.each do |p|
