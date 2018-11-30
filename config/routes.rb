@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get :my_profile, to: "users#my_profile"
   resources :events do
   end
+
+  resource :profile, only: [:edit, :update]
 end
