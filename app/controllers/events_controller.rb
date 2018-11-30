@@ -20,7 +20,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.coordinator_id = current_user.id
     @data = []
-    if @event.save
+    if @event.save!
       participants = params[:event][:participants]
       participants.delete_at(0)
       participants.each do |p|
