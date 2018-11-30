@@ -1,5 +1,4 @@
-
-.btn-s {
+.next-button {
   padding: 10px 20px;
   border-radius: 4px;
   font-family: Roboto;
@@ -10,16 +9,17 @@
   text-decoration: none;
 }
 
-.btn-s:hover {
+.next-button:hover {
   opacity: 0.8;
   text-decoration: none !important;
   color: white;
 }
-.btn-s:active {
+
+.next-button:active {
   text-decoration: none !important;
 }
 
-.btn-s:visited {
+.next-button:visited {
   text-decoration: none !important;
 }
 

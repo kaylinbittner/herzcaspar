@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HerzCaspar</title>
+    <%= favicon_link_tag 'https://res.cloudinary.com/dqssam2go/image/upload/v1543318354/logo.png', :rel => 'icon', :type =>  'image/png' %>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js' %>
+    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+
+    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+  </head>
+
+  <body>
+    <%= render 'shared/flashes' %>
+    <%= yield %>
+    <%= javascript_pack_tag 'application' %>
+  </body>
+</html>
