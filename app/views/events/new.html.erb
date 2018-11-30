@@ -1,0 +1,15 @@
+<div class="signup-banner signupb" style="background-image: url( <%=image_path('https://res.cloudinary.com/dqssam2go/image/upload/v1543512396/image.png')%>);">
+  <div class="container" style="margin: 100px;">
+    <div class="event-creation-form">
+      <%= simple_form_for(@event) do |f| %>
+        <%= f.input :title, placeholder: "Title", label: false, class: "event" %>
+        <%= f.input :start, as: :datetime, html5: true, class: "event" %>
+        <%= f.input :end, as: :datetime, html5: true, class: "event"  %>
+        <%= f.input :description,  placeholder: "Description", label: false, class: "event" %>
+        <%= f.input :location, placeholder: "Location", linline_label: 'Where do we meet?', label: false, class: "event" %>
+        <%= f.input :participants, collection: @users, input_html: { class: "select2-mulitple-guest", multiple: "multiple" }, label_method: :email, value_method: :id %>
+        <%= f.button :submit, value= "Create Event", class: "next-button" %>
+      <% end %>
+    </div>
+  </div>
+</div>
