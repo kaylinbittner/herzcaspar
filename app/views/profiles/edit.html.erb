@@ -5,7 +5,7 @@
       <div class="circle circle-margin">
         1
       </div>
-        <div class="circle circle-margin blue-circle">
+      <div class="circle circle-margin blue-circle">
         2
       </div>
 
@@ -18,19 +18,20 @@
         <%= simple_form_for(current_user, url: profile_path) do |f| %>
         <%= f.input :first_name, require: true, placeholder: "First Name", label: false%>
         <%= f.input :last_name, require: true, placeholder: "Last Name", label: false %>
-        <%= f.input :gender, require: true, placeholder: "Male/Female", label: false %>
-        <%= f.input :photo, placeholder: "Photo", label: false  %>
+        <%= f.input :gender, as: :select, prompt: 'Gender',require: true, collection: ["Male", "Female"],label: false %>
+        <%= f.input :photo, placeholder: "Photo", label: "Your Photo"  %>
         <%= f.input :photo_cache, as: :hidden %>
-        <%= f.input :bio, require: true, placeholder: "Bio", label: false %>
-        <div class="form-actions">
-          <%= f.button :submit, value= "FINISH", class: "next-button" %>
-          <% end %>
-        </div>
+        <%= f.input :bio, require: true, placeholder: "Tell us about yourself", label:false%>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, value= "FINISH", class: "next-button" %>
+        <% end %>
+      </div>
        <!--  </div>
        </div> -->
-        </div>
      </div>
    </div>
  </div>
+</div>
 
 
