@@ -1,7 +1,7 @@
 $( document ).ready(function() {
-  let data = document.getElementById('events');
+  var data = document.getElementById('events');
   if (data) {
-    let json = JSON.parse(data.getAttribute('data-events'));
+    var json = JSON.parse(data.getAttribute('data-events'));
     $(function() {
       $('#calendar').fullCalendar({
         height: 600,
