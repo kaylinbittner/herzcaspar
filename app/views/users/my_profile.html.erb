@@ -4,76 +4,56 @@
   <%= image_tag @user.photo.url(:bright_face), class: "avatar" %>
   <% else %>
   <div class="avatar-placeholder">
-    <h1><%= @user.first_name.first.upcase %><%= @user.last_name.first.upcase %></h1>
+    <h1><%= @user.email.first.upcase %></h1>
   </div>
   <% end %>
 </div>
-<div id="accordion">
-  <!-- Only shows if current_user.role == coordinator -->
-  <% if current_user.role == "coordinator" %>
-  <div class="accordion">
-    <input type="radio" name="radacc" class="accordian-chk" / >
-    <h3 class="accordian-header">
-      Driver
-      <span class="acc-icon"></span>
-    </h3>
-    <div class="accordian-content">
-      <button type="button" class="btn-s" data-toggle="modal" data-target="#eventModal">
-        Create Event
-      </button>
-      <!-- Modal -->
-      <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Create Event</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+
+  <div id="accordion">
+    <div class="accordion">
+      <input type="radio" name="radacc" class="accordian-chk" />
+      <h3 class="accordian-header active">
+        Interests
+        <span class="acc-icon"></span>
+      </h3>
+      <div class="accordian-content" tabindex="2">
+
+        <form action="/my_profile", method='post' class="container" style="display: flex; flex-direction: column; background-color: white; border-radius: 10px;">
+          <div class="row">
+            <div class=".col-md-8 .col-md-offset-2">
+               <label class="interest-label" for="interests-form">You can update your interests below:</label><br>
+               <p style="text-align: center; margin: 0% 30%;">Let us know which activities interest you by choosing them from the categories below. Add a rating to indicate your FAVORITE acitivities and increase the accuracy of your match! </p>
             </div>
           </div>
-        </div>
+
+          <div class="row">
+            <div class=".col-md-6" id="item-value">
+              <% 8.times do %>
+                <%= render'shared/interest_selector' %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class=".col-md-6" id="item-value">
+              <label for="location">Area of Residence: </label>
+              <input placeholder="Berlin" type="text" style="margin-top: 2%; border-radius: 10px;">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class=".col-md-6" id="item-value">
+              <textarea name="message" placeholder="Tell us a little more about you..." rows="2" cols="90" class="text-area" style="border-color: gray; border-radius: 10px; margin-top: 2%;"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class=".col-md-6" id="item-value">
+              <button class="btn-s" formtarget="_self" type="submit" style="margin: 2% 0%;">Submit</button>
+            </div>
+          </div>
+
+        </form>
       </div>
-    </div>
-  </div>
-  <% end %>
-  <!-- Driver input ends -->
-  <!-- Profile starts -->
-  <div class="accordion">
-    <input type="radio" name="radacc" class="accordian-chk" />
-    <h3 class="accordian-header">
-      Profile
-      <span class="acc-icon"></span>
-    </h3>
-    <div class="accordian-content" tabindex="2">
-      <form action="/flats", method='post' class="form-container">
-        <textarea name="message" placeholder="Placeholder" rows="3" cols="90" class="text-area"></textarea>
-        <label class="label" for="city">CITY</label><br>
-        <input placeholder="Berlin" type="text" name="city" class="form-body"><br>
-        <input placeholder="€ 70 per/night" type="text" name="price" class="form-body"><br>
-        <input placeholder="4 people" type="text" name="guests" class="form-body"><br>
-
-        <select name="myFruit">
-          <option>Select</option>
-          <option>Cherry</option>
-          <option>Lemon</option>
-          <option>Banana</option>
-          <option>Strawberry</option>
-          <option>Apple</option>
-        </select>
-
-
-        <div class="button-form">
-          <input type="submit" value="Search" class="s-button">
-        </div>
-      </form>
     </div>
   </div>
   <!-- Profile ends -->
