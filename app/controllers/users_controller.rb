@@ -7,8 +7,6 @@ class UsersController < ApplicationController
       @data << { title: e.title, start: e.start, end: e.end, description: e.description, location: e.location }
     end
   end
-
-
 end
 
 
