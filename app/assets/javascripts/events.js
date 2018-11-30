@@ -20,7 +20,7 @@ $( document ).ready(function() {
 
       eventClick:  function(calEvent, jsEvent, view) {
               $('#modalTitle').html(calEvent.title);
-              $('#modalBody').html(calEvent.description + ' @ '+calEvent.location );
+              $('#modalBody').html(calEvent.description + ' @ '+calEvent.location);
               $('#fullCalModal').modal();
           }
     });
