@@ -2,7 +2,16 @@
   position: relative;
 }
 .text-area {
-  margin-left: %;
+  margin: 0px;
+  resize: none;
+}
+#item-value {
+  text-align: center;
+}
+.interest-label {
+  color: #A31636;
+  font-size: 34px;
+  margin-left: 25%;
 }
 .accordion { width: 100%; position: relative; }
 .accordian-chk {
@@ -27,13 +36,15 @@
   border-radius: 5px;
   box-shadow: 0 0.5px 0.5px rgba(0,0,0,0.4);
   margin-left: 20px;
+  display: flex;
 }
 
 .accordion h3 {
   background: #7BBBE3 none;
   border: 1px solid #B2D5E5 !important;
   position: relative;
-  padding: 10px;
+  padding-top: 11px;
+  padding-bottom: 15px;
   color: #fff;
   font-size: 16px;
   font-weight: normal;

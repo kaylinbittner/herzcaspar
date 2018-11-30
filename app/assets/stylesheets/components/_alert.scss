@@ -6,10 +6,13 @@
   margin: 0;
   text-align: center;
   color: white;
+  max-height: 70px;
 }
 .alert-info {
   background: $green;
+  max-height: 70px;
 }
 .alert-warning {
   background: $red;
+  max-height: 70px;
 }
