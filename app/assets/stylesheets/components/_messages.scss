@@ -1,6 +1,13 @@
 .chat-container{
 
 }
+h4 {
+
+}
+.conv-head {
+  margin: 10px 0px;
+  color: #7BBBE3;
+}
 .chat-window{
   height: calc(100% - 35px);
   max-height: 500px;
@@ -13,17 +20,31 @@
   flex-direction: column;
   z-index: 10;
   transition: all ease 1s;
+  border-radius: 10px;
 }
 
 .test-id-closed{
   height: 0px;
   opacity: 0;
   cursor:pointer;
+  display:none;
 }
 
 .quit-chat{
   width: fit-content;
   height: fit-content;
+  cursor: pointer;
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  h1{
+    font-size: 18px;
+    margin: 0;
+    position: absolute;
+    right: 12px;
+    top: 3px;
+  }
 }
 
 .chat-window-closed{
@@ -52,10 +73,14 @@
 }
 
 #chat{
-  height: 25vh;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  opacity: 0.9;
 }
 // .messages-wrapper{
 //   display: flex;
