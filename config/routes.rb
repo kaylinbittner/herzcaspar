@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages, only: :create
   end
+  resources :events do
+  end
+
+  resource :profile, only: [:edit, :update]
 end

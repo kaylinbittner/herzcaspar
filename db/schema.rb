@@ -33,6 +33,31 @@ ActiveRecord::Schema.define(version: 2018_11_28_143009) do
     t.index ["coordinator_id"], name: "index_drivers_on_coordinator_id"
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.boolean "allday"
+    t.datetime "start"
+    t.datetime "end"
+    t.boolean "editable"
+    t.boolean "starteditable"
+    t.boolean "durationeditable"
+    t.text "description"
+    t.string "location"
+    t.bigint "coordinator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coordinator_id"], name: "index_events_on_coordinator_id"
+  end
+
+  create_table "interest_details", force: :cascade do |t|
+    t.string "detail"
+    t.string "photo"
+    t.bigint "interest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["interest_id"], name: "index_interest_details_on_interest_id"
+  end
+
   create_table "interests", force: :cascade do |t|
     t.text "bio"
     t.string "area"
@@ -71,6 +96,16 @@ ActiveRecord::Schema.define(version: 2018_11_28_143009) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "user_events", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "attendance"
+    t.index ["event_id"], name: "index_user_events_on_event_id"
+    t.index ["user_id"], name: "index_user_events_on_user_id"
+  end
+
   create_table "user_interests", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "interest_id"
@@ -96,6 +131,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_143009) do
     t.string "gender"
     t.string "city"
     t.string "photo"
+    t.text "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -104,12 +140,16 @@ ActiveRecord::Schema.define(version: 2018_11_28_143009) do
   add_foreign_key "conversations", "users", column: "sender_id"
   add_foreign_key "drivers", "users", column: "buddy_id"
   add_foreign_key "drivers", "users", column: "coordinator_id"
+  add_foreign_key "events", "users", column: "coordinator_id"
+  add_foreign_key "interest_details", "interests"
   add_foreign_key "matches", "users", column: "buddy_id"
   add_foreign_key "matches", "users", column: "coordinator_id"
   add_foreign_key "matches", "users", column: "patient_id"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "user_events", "events"
+  add_foreign_key "user_events", "users"
   add_foreign_key "user_interests", "interests"
   add_foreign_key "user_interests", "users"
 end
