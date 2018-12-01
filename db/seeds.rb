@@ -24,6 +24,30 @@ user_list.each do |first_name, last_name, email, password, password_confirmation
   user.remote_photo_url = url
   user.save
 end
+
+puts 'Creating interests'
+interest_area_list = ["sports", "movies" "books", "food", "video", "hobbies", "games", "causes"]
+
+interest_details_list = [
+  ["American Football", "Archery", "Badminton", "Baseball", "Basketball", "Bowling", "Boxing", "Cricket", "Football", "Golf", "Gymnastics", "Handball", "Hockey", "Ice Hockey", "Rowing", "Rugby", "Sailing", "Shooting", "Squash", "Swimming", "Table Tennis", "Tennis", "Volleyball", "Weightlifting", "Winter Sports", "Wrestling",  "Other - Not Listed"]
+  ["Action", "Adventure", "Comedy", "Crime", "Drama", "Fantasy", "Historical", "Historical Fiction", "Horror", "Mystery", "Political", "Romance", "Saga", "Satire", "Science Fiction", "Thriller", "Western", "Romantic Comedy", "Animation",c"Other - Not Listed"]
+  ["Action", "Adventure", "Comedy", "Crime", "Drama", "Fantasy", "Historical", "Historical Fiction", "Horror", "Mystery", "Political", "Romance", "Saga", "Satire", "Science Fiction", "Thriller", "Western", "Romantic Comedy", "Other - Not Listed"]
+  ["Fusion", "Vegan", "Vegetarian", "Cajun", "Chinese", "French", "Greek", "Indian", "Italian", "Korean", "Mexican", "Polish", "Pakistani", "Peruvian", "Portuguese", "Russian", "Somali", "Turkish", "Other - Not Listed"]
+  ["Wii U", "PlayStation 4", "Xbox One", "Nintendo Switch", "Nintendo DS", "Game Boy", "Nintendo 64", "GameCube", "Other - Not Listed"]
+  ["Fishing", "Gardening", "Listening to Music", "Shopping", "Traveling", "Sewing", "Playing Music", "Crafts", "Watching Sports", "Bicycling", "Playing Cards", "Hiking", "Cooking", "Camping", "Painting", "Running", "Dancing", "Photography", "Theater", "Other - Not Listed"]
+  ["Scrabble", "Monopoly", "Catan", "Qwirkle", "Risk", "Axis & Allies", "Clue", "Battleship", "Jenga", "Trivial Pursuit", "Twister", "Blokus", "Connect Four", "Operation", "Yahtzee", "Cards Against Humanity", "Sorry!", "Hungry Hungry Hippos", "Mouse Trap", "Cranium", "Chutes and Ladders", "Scattergories", "The Game of Life", "Kerplunk", "Trouble", "Zingo", "Candy Land", "Pictionary", "Cootie", "PieFace", "Other - Not Listed"]
+  ["Community", "Children & Youth", "Poverty", "Education & Literacy", "Health & Medicine", "Seniors", "Arts & Culture", "Advocacy & Human Rights", "Women", "Disabled", "Homelessness & Housing", "Water & Sanitation", "Agriculture & Farming", "Economic Development", "Research", "Other - Not Listed"]
+]
+
+
+interest_area_list.each_with_index do |interest, index|
+  inter = Interest.create(area: interest)
+  interest_details_list[index].each do |detail|
+    InterestDetail.create(detail: detail, interest_id: inter.id)
+  end
+end
+
+
 puts 'Finished creating users'
 
 puts 'Creating events'
