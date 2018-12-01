@@ -9,7 +9,7 @@
         <h2><%= User.find(conversation.recipient_id).first_name%></h2>
       <% else %>
         <%= image_tag User.find(conversation.sender_id).photo.url(:bright_face), class: 'chat-avatar'%>
-        <h2><%= User.find(conversation.sender_id).first_name %></h2>
+        <h2 class="conv-head"><%= User.find(conversation.sender_id).first_name %></h2>
       <% end %>
     </div>
     <div class="messages-wrapper">
