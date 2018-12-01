@@ -1,0 +1,6 @@
+function getToOneConversation(innerHTML) {
+  const oneConversation = document.getElementById('chat');
+  oneConversation.innerHTML = innerHTML;
+}
+
+getToOneConversation("<%= j render 'shared/messages', conversation: @conversation, messages: @messages, over_ten: @over_ten, message: @message %>");
