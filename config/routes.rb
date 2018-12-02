@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   end
   resource :profile, only: [:edit, :update]
 
-  resources :matches, only: [:new, :create]
+  resources :matches, only: [:new, :create ]
 
 end

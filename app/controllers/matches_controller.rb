@@ -1,12 +1,11 @@
 class MatchesController < ApplicationController
-  def index
-    @matches = Match.all
-  end
-
   def new
-    @match = Match.new()
+    @match = Match.new
     @buddies = User.where(role: "buddy")
     @patients = User.where(role: "patient")
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
@@ -17,6 +16,7 @@ class MatchesController < ApplicationController
       render :new
     end
   end
+
   private
 
   def match_params

@@ -4,7 +4,7 @@ class EventsController < ApplicationController
     @events = Event.all
     # current_user.events
     @events.each do |e|
-    @data << { title: e.title, start: e.start, end: e.end, description: e.description, location: e.location }
+      @data << { title: e.title, start: e.start, end: e.end, description: e.description, location: e.location }
     end
   end
 
@@ -14,6 +14,9 @@ class EventsController < ApplicationController
   def new
     @event = Event.new()
     @users = User.all
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
