@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_28_143009) do
+ActiveRecord::Schema.define(version: 2018_12_01_161923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,20 +49,12 @@ ActiveRecord::Schema.define(version: 2018_11_28_143009) do
     t.index ["coordinator_id"], name: "index_events_on_coordinator_id"
   end
 
-  create_table "interest_details", force: :cascade do |t|
-    t.string "detail"
-    t.string "photo"
-    t.bigint "interest_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["interest_id"], name: "index_interest_details_on_interest_id"
-  end
-
   create_table "interests", force: :cascade do |t|
-    t.text "bio"
     t.string "area"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
+    t.string "variant"
   end
 
   create_table "matches", force: :cascade do |t|
@@ -141,7 +133,6 @@ ActiveRecord::Schema.define(version: 2018_11_28_143009) do
   add_foreign_key "drivers", "users", column: "buddy_id"
   add_foreign_key "drivers", "users", column: "coordinator_id"
   add_foreign_key "events", "users", column: "coordinator_id"
-  add_foreign_key "interest_details", "interests"
   add_foreign_key "matches", "users", column: "buddy_id"
   add_foreign_key "matches", "users", column: "coordinator_id"
   add_foreign_key "matches", "users", column: "patient_id"
