@@ -13,7 +13,7 @@
   display: grid;
   grid-template-columns: 350px 1fr 1fr 1fr;
   grid-template-rows: 50% 50%;
-  height: calc(100vh - 70px);
+  height: 60vh;
   padding: 30px;
 }
 
@@ -24,12 +24,13 @@
 .profile h3 {
   font-size: 22px;
   margin-bottom: 15px;
+  color: black;
 }
 
 .card h3 {
   font-size: 28px;
   margin-bottom: 15px;
-  color: #37B686;
+  color: $blue;
 }
 
 .card p {

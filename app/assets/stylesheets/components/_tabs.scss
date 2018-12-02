@@ -22,8 +22,12 @@
   border: medium none;
 }
 .nav-tabs > li > a:hover{
-  background-color: $red !important;
+  background-color: $blue !important;
     border: medium none;
-    border-radius: 3px;
+    border-radius: 3px 3px 0px 0px;
     color:#fff;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+background-color:rgba(255,255,255,0.5) ;
 }

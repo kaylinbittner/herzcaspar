@@ -1,24 +1,23 @@
 .avatar {
-  position: absolute;
-  bottom: -125px;
-  left: 20px;
-  height: 250px;
-  width: 250px;
+  // position: absolute;
+  // bottom: -125px;
+  // left: 20px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 1);
-  z-index: 5;
 }
 
 .avatar-placeholder {
-  position: absolute;
-  bottom: -125px;
-  left: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // position: absolute;
+  // bottom: -125px;
+  // left: 20px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
   color: white;
-  height: 250px;
-  width: 250px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 1);
   background-color: gray;

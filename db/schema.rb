@@ -15,15 +15,6 @@ ActiveRecord::Schema.define(version: 2018_12_01_142551) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "conversations", force: :cascade do |t|
-    t.bigint "sender_id"
-    t.bigint "recipient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
-    t.index ["sender_id"], name: "index_conversations_on_sender_id"
-  end
-
   create_table "drivers", force: :cascade do |t|
     t.bigint "buddy_id"
     t.bigint "coordinator_id"
@@ -76,17 +67,6 @@ ActiveRecord::Schema.define(version: 2018_12_01_142551) do
     t.index ["patient_id"], name: "index_matches_on_patient_id"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text "body"
-    t.bigint "conversation_id"
-    t.bigint "user_id"
-    t.boolean "read", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.json "pictures"
     t.text "content"
@@ -136,8 +116,6 @@ ActiveRecord::Schema.define(version: 2018_12_01_142551) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "conversations", "users", column: "recipient_id"
-  add_foreign_key "conversations", "users", column: "sender_id"
   add_foreign_key "drivers", "users", column: "buddy_id"
   add_foreign_key "drivers", "users", column: "coordinator_id"
   add_foreign_key "events", "users", column: "coordinator_id"
@@ -145,8 +123,6 @@ ActiveRecord::Schema.define(version: 2018_12_01_142551) do
   add_foreign_key "matches", "users", column: "buddy_id"
   add_foreign_key "matches", "users", column: "coordinator_id"
   add_foreign_key "matches", "users", column: "patient_id"
-  add_foreign_key "messages", "conversations"
-  add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "user_events", "events"
   add_foreign_key "user_events", "users"
