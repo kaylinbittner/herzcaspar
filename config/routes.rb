@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages, only: :create
   end
-  resources :events do
-  end
+  resources :events
 
   resource :profile, only: [:edit, :update]
+  resource :user_interests, only: [:new, :create]
 end
