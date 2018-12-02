@@ -1,28 +1,44 @@
 <div class="background">
   <div class="profile-content">
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My Profile</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Calender</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mate</a>
-  </li>
-    <li class="nav-item">
-    <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Driver</a>
-  </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab"><%= render 'shared/profile' %></div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Calender</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mate</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Driver</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <%= render 'shared/profile', user: current_user %>
+      </div>
 
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">3.</div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        3.
+      </div>
 
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><%= render 'shared/profile' %></div>
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <% if current_user.role.present? %>
+          <% if current_user.role == "buddy" %>
+            <% if !Match.find_by(buddy_id: current_user.id).nil? %>
+              <%= render 'shared/profile', user: Match.find_by(buddy_id: current_user.id).patient %>
+            <% end %>
+          <% elsif !Match.find_by(patient_id: current_user.id).nil? %>
+            <%= render 'shared/profile', user: Match.find_by(patient_id: current_user.id).buddy %>
+          <% end %>
+        <% end %>
+      </div>
 
-   <div class="tab-pane fade" id="driver" role="tabpanel" aria-labelledby="driver-tab">.4</div>
-</div>
+       <div class="tab-pane fade" id="driver" role="tabpanel" aria-labelledby="driver-tab">
+        .4
+       </div>
+    </div>
   </div>
 </div>
 
