@@ -55,6 +55,12 @@ interest_list.each do |key, value|
   end
 end
 
+puts 'For each user 3 interests'
+User.all.each do |user|
+  3.times do
+    user.interests << Interest.find(rand(0..Interest.all.length))
+  end
+end
 
 puts 'Creating events'
 
