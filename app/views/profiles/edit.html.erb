@@ -19,6 +19,7 @@
         <%= f.input :first_name, require: true, placeholder: "First Name", label: false%>
         <%= f.input :last_name, require: true, placeholder: "Last Name", label: false %>
         <%= f.input :gender, as: :select, prompt: 'Gender',require: true, collection: ["Male", "Female"],label: false %>
+        <%= f.input :role, as: :select, prompt: 'Role',require: true, collection: ["Buddy", "Patient"],label: false %>
         <%= f.input :photo, placeholder: "Photo", label: "Your Photo"  %>
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.input :bio, require: true, placeholder: "Tell us about yourself", label:false%>
