@@ -39,8 +39,9 @@
         <%= render 'shared/matches', matches: Match.where(coordinator_id: current_user.id) %>
         <%= link_to 'Create match', new_match_path, remote: true, class: "next-button" %>
         <div id="createMatch"></div>
-        <%= link_to 'Create event', new_event_path, remote: true, class: "next-button"%>
+        <%= link_to 'Create event', new_event_path, remote: true, class: "next-button", id: "create-event"%>
         <div id="createEvent"></div>
+        <%= render "events/form" %>
       </div>
     </div>
   </div>
