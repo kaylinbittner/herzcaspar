@@ -26,16 +26,4 @@ class UsersController < ApplicationController
       @message = @conversation.messages.new
     end
   end
-
-  def edit
-    @user = User.find(current_user.id)
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  def update
-    @user.update(user_params)
-    redirect_to @user
-  end
 end
