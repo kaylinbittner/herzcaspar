@@ -18,22 +18,22 @@
  <!--        <a href="#" class="next-button">Get in touch</a> -->
       </div>
     </div>
-    <% if user.interests == [] %>
+<!--     <%# if user.interests == [] %>
       <div class="fill-in-interests-form">
         <div class="fill-in-interests-form-content">
           <%#= render 'user_interests/new' %>
         </div>
       </div>
-    <% else %>
-      <% user.interests.each do |interest| %>
-        <div class="card" style="background-image: url( <%=image_path(interest.photo)%>); background-size: cover">
+    <%# else %>
+      <%# user.interests.each do |interest| %>
+        <div class="card" style="background-image: url( <%#=image_path(interest.photo)%>); background-size: cover">
           <div class="card-content">
-            <h3><%= interest.area %></h3>
-            <p><%= interest.variant %></p>
+            <h3><%#= interest.area %></h3>
+            <p><%#= interest.variant %></p>
           </div>
         </div>
-      <% end %>
-    <% end %>
+      <%# end %>
+    <%# end %> -->
 
     <div class="description">
       <div class="description-content">
