@@ -1,72 +1,47 @@
-<div class="profile-infos">
-  <%= render 'shared/banner' %>
-  <% if @user.photo.present? %>
-  <%= image_tag @user.photo.url(:bright_face), class: "avatar" %>
-  <% else %>
-  <div class="avatar-placeholder">
-    <h1><%= @user.email.first.upcase %></h1>
-  </div>
-  <% end %>
-</div>
+<div class="background">
+  <div class="profile-content">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Calender</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mate</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Driver</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <%= render 'shared/profile', user: current_user %>
+      </div>
 
-  <div id="accordion">
-    <div class="accordion">
-      <input type="radio" name="radacc" class="accordian-chk" />
-      <h3 class="accordian-header active">
-        Interests
-        <span class="acc-icon"></span>
-      </h3>
-      <div class="accordian-content" tabindex="2">
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <%#= render template:'events/index' %>
+      </div>
 
-        <form action="/my_profile", method='post' class="container" style="display: flex; flex-direction: column; background-color: white; border-radius: 10px;">
-          <div class="row">
-            <div class=".col-md-8 .col-md-offset-2">
-               <label class="interest-label" for="interests-form">You can update your interests below:</label><br>
-               <p style="text-align: center; margin: 0% 30%;">Let us know which activities interest you by choosing them from the categories below. Add a rating to indicate your FAVORITE acitivities and increase the accuracy of your match! </p>
-            </div>
-          </div>
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <% if current_user.role.present? %>
+          <% if current_user.role == "buddy" %>
+            <% if !Match.find_by(buddy_id: current_user.id).nil? %>
+              <%= render 'shared/profile', user: Match.find_by(buddy_id: current_user.id).patient %>
+            <% end %>
+          <% elsif !Match.find_by(patient_id: current_user.id).nil? %>
+            <%= render 'shared/profile', user: Match.find_by(patient_id: current_user.id).buddy %>
+          <% end %>
+        <% end %>
+      </div>
 
-          <div class="row">
-            <div class=".col-md-6" id="item-value">
-              <% 8.times do %>
-                <%= render'shared/interest_selector' %>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class=".col-md-6" id="item-value">
-              <label for="location">Area of Residence: </label>
-              <input placeholder="Berlin" type="text" style="margin-top: 2%; border-radius: 10px;">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class=".col-md-6" id="item-value">
-              <textarea name="message" placeholder="Tell us a little more about you..." rows="2" cols="90" class="text-area" style="border-color: gray; border-radius: 10px; margin-top: 2%;"></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class=".col-md-6" id="item-value">
-              <button class="btn-s" formtarget="_self" type="submit" style="margin: 2% 0%;">Submit</button>
-            </div>
-          </div>
-
-        </form>
+      <div class="tab-pane fade" id="driver" role="tabpanel" aria-labelledby="driver-tab">
+        <%= render 'shared/matches', matches: Match.where(coordinator_id: current_user.id) %>
+        <%= link_to 'Create match', new_match_path, remote: true, class: "next-button" %>
+        <%= link_to 'Create event', new_event_path, remote: true, class: "next-button"%>
+        <div id="myModal"></div>
       </div>
     </div>
   </div>
-  <!-- Profile ends -->
-  <!-- Calendar starts -->
-  <div class="accordion">
-    <input type="radio" name="radacc" class="accordian-chk" checked / >
-    <h3 class="accordian-header">
-      Calendar
-      <span class="acc-icon"></span>
-    </h3>
-    <div class="accordian-content">
-      <%= render template: "events/index" %>
-    </div>
-  </div>
-  <!-- Calendar ends -->
 </div>
+

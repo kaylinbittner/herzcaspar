@@ -45,3 +45,20 @@
   color: white;
   background-color:#A31636;
 }
+
+.btn-m {
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: Roboto;
+  border-radius: 5px;
+  background-color:#7BBBE3;
+  color: white;
+  text-align: center !important;
+  text-decoration: none;
+}
+
+.btn-m:hover {
+  opacity: 0.8;
+  text-decoration: none !important;
+  color: white;
+}

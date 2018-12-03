@@ -4,7 +4,6 @@ $( document ).ready(function() {
     var json = JSON.parse(data.getAttribute('data-events'));
     $(function() {
       $('#calendar').fullCalendar({
-        height: 600,
         defaultView: 'listWeek',
         views: {
           listDay: { buttonText: 'list day' },

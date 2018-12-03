@@ -1,0 +1,9 @@
+function appendNewMessage() {
+  const newMessage = "<p class='message-body'><%= @message.body %></p><p class='message-time'><%= @message.message_time %></p>";
+  const messages = document.getElementById('messages');
+  messages.insertAdjacentHTML('beforeend', newMessage);
+  const inputBox = document.getElementById('message_body');
+  inputBox.value = "";
+}
+
+appendNewMessage()
