@@ -1,3 +1,5 @@
 import "bootstrap";
-import "./closeChat.js";
+import "../plugins/flatpickr";
+import "./openEventForm";
+import "./closeChat";
 // import "interestSelcetor";

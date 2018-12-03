@@ -11,9 +11,9 @@
             </h1>
           </div>
         <% end %>
-        <h2><%= user.first_name %> <%= user.last_name %></h2>
-        <p><%= user.email %></p>
-        <p><%= user.date_of_birth %></p>
+        <h2><span class="profile-name"><%= user.first_name %> <%= user.last_name %></span></h2>
+        <p><span class="profile-email"><%= user.email %></span></p>
+        <p><span class="profile-dob"><%= user.date_of_birth %></span></p>
         <%= link_to 'Update', edit_user_path(current_user.id), remote: true, class: "next-button"%>
  <!--        <a href="#" class="next-button">Get in touch</a> -->
       </div>

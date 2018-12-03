@@ -13,10 +13,18 @@
   display: grid;
   grid-template-columns: 350px 1fr 1fr 1fr;
   grid-template-rows: 50% 50%;
-  height: 60vh;
+  min-height: 60vh;
   padding: 30px;
 }
-
+.profile-name {
+  color: black;
+}
+.profile-email {
+  color: black;
+}
+.profile-dob {
+  color: black;
+}
 .profile h2 {
   font-size: 22px;
 }
@@ -82,6 +90,8 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+
 
 @media (min-width: 992px){
   .card-container {

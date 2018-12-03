@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @users = User.all
     @conversations = Conversation.all
     set_messages
+    @event = Event.new
   end
 
   private
