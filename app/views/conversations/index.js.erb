@@ -1,0 +1,6 @@
+function showAllConversations(innerHTML) {
+  const allConversations = document.getElementById('chat');
+  allConversations.innerHTML = innerHTML;
+}
+
+showAllConversations("<%= j render 'shared/conversation', conversations: @conversations, users: @users %>");
