@@ -17,11 +17,13 @@ class UserInterestsController < ApplicationController
 
   private
 
-  def get_interests
+  def get_variant
     interest_id = params[:interest_id]
-    @interest_variant = Interest.find(interest_id)
+    @interest = Interest.find(interest_id)
+    @variant_array = []
+    Interest.all.where(area: @interest.area).each { |interest| @variant_array << interest.variant }
 
-    render json: @books
+    render json: @variant
   end
 
   def user_interests_params
