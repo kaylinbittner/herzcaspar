@@ -1,0 +1,5 @@
+<%= simple_form_for (@user_interest) do |f| %>
+  <%= variable = f.input :interest, collection: @area_array.uniq %>
+  <%= f.input :interest, collection: @interests.where(area: variable) %>
+<% end %>
+

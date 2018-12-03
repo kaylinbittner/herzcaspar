@@ -1,6 +1,14 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @conversations = Conversation.all
+    @users = User.all
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def show
     @conversation = Conversation.find(conversation_params[:id])
     @messages = @conversation.messages
@@ -17,11 +25,8 @@ class ConversationsController < ApplicationController
     end
     @message = @conversation.messages.new
 
-    if !@conversation.nil?
-      respond_to do |format|
-        format.html { redirect_to @conversations }
-        format.js # <-- will render `app/views/conversations/show.js.erb`
-      end
+    respond_to do |format|
+      format.js # <-- will render `app/views/conversations/show.js.erb`
     end
   end
 

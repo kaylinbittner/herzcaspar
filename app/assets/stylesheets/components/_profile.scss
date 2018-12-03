@@ -1,4 +1,4 @@
-.card, .main, .description{
+.card, .main, .description, .fill-in-interests-form{
   background: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   padding: 50px;
@@ -72,6 +72,11 @@
 .main {
   grid-row: 1 / span 2;
   grid-column: 1 / span 1;
+}
+
+.fill-in-interests-form {
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 3;
 }
 
 .description {

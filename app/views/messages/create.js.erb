@@ -1,3 +1,4 @@
+import { setUpQuit };
 function appendNewMessage() {
   const newMessage = "<p class='message-body'><%= @message.body %></p><p class='message-time'><%= @message.message_time %></p>";
   const messages = document.getElementById('messages');
@@ -6,4 +7,5 @@ function appendNewMessage() {
   inputBox.value = "";
 }
 
-appendNewMessage()
+appendNewMessage();
+setUpQuit();
