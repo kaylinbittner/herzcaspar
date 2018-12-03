@@ -2,6 +2,8 @@ class UserInterestsController < ApplicationController
   def new
     @user_interest = UserInterest.new
     @interests = Interest.all
+    @area_array = []
+    @interests.all.each { |interest| @area_array << interest.area}
   end
 
   def create

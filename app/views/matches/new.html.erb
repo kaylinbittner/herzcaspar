@@ -1,7 +1,7 @@
 <div class="container" style="padding-top: 100px;">
-<%= simple_form_for (@match) do |f| %>
-<%= f.input :patient, collection: @patients, label_method: :email, value_method: :id %>
-<%= f.input :buddy, collection: @buddies, label_method: :email, value_method: :id %>
-<%= f.button :submit, class: "next-button" %>
-<% end %>
+  <%= simple_form_for (@match) do |f| %>
+    <%= f.input :patient, collection: @patients, label_method: :email, value_method: :id %>
+    <%= f.input :buddy, collection: @buddies, label_method: :email, value_method: :id %>
+    <%= f.button :submit, class: "next-button" %>
+  <% end %>
 </div>
