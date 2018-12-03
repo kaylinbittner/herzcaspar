@@ -1,6 +1,9 @@
 <div class="chat-window">
   <div class="quit-chat">
-    <h1>x</h1>
+    x
+  </div>
+  <div class="back-arrow">
+    <%= link_to ('<i class="fas fa-arrow-left"></i>').html_safe, conversations_path, remote: true  %>
   </div>
   <div id="test">
     <div class="chat-header">

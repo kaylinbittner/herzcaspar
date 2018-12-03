@@ -4,7 +4,7 @@ function setUpQuit(){
   var testId = document.getElementById('test');
   chatQuit.addEventListener('click', function(){
     if (testId.classList.contains("test-id-closed")) {
-      chatQuit.innerHTML = "<h1>x</h1>"
+      chatQuit.innerHTML = "x"
     }
     else {
       chatQuit.innerHTML = "chat"
