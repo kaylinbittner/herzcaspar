@@ -44,8 +44,13 @@
       </div>
     </div>
   </div>
-  <div id="chat">
-    <%= render 'shared/conversation', conversations: @conversations, users: @users %>
+  <div class="chat-wrapper">
+    <div class="quit-chat">
+      x
+    </div>
+    <div id="chat">
+      <%= render  'shared/conversation', conversations: @conversations, users: @users %>
+    </div>
   </div>
 </div>
 
