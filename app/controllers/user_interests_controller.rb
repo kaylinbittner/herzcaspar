@@ -17,6 +17,13 @@ class UserInterestsController < ApplicationController
 
   private
 
+  def get_interests
+    interest_id = params[:interest_id]
+    @interest_variant = Interest.find(interest_id)
+
+    render json: @books
+  end
+
   def user_interests_params
     params.require(:user_interests).permit(:interest)
   end
