@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  get :my_profile, to: "users#my_profile"
   root to: "pages#home"
   devise_for :users, :controllers => { registrations: 'registrations' }
-  get :my_profile, to: "users#my_profile"
   resources :users, only: [:edit, :update]
 
 
@@ -9,9 +9,12 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages, only: :create
   end
-  resources :events do
-  end
+
+  resources :events
   resource :profile, only: [:edit, :update]
+
+  resource :user_interests, only: [:new, :create]
+
   resources :matches, only: [:new, :create]
 
 end

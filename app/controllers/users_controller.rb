@@ -4,13 +4,14 @@ class UsersController < ApplicationController
     @users = User.all
     @conversations = Conversation.all
     set_messages
+    @event = Event.new
   end
 
   private
 
   def set_messages
+    @conversation = Conversation.find_by(id: params[:conversation_id]) || Conversation.first
     if !@conversation.nil?
-      @conversation = Conversation.find_by(id: params[:conversation_id]) || Conversation.first
       @messages = @conversation.messages
       if @messages.length > 10
         @over_ten = true
@@ -24,11 +25,6 @@ class UsersController < ApplicationController
         @messages.last.read = true if @messages.last.user_id != current_user.id
       end
       @message = @conversation.messages.new
-    end
-    @data = []
-    @events = Event.all
-    @events.each do |e|
-      @data << { title: e.title, start: e.start, end: e.end, description: e.description, location: e.location }
     end
   end
 end
