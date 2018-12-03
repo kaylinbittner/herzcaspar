@@ -33,7 +33,10 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # puts "hello from edit"
+    @user = User.find(current_user.id)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
