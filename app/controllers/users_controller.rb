@@ -9,8 +9,8 @@ class UsersController < ApplicationController
   private
 
   def set_messages
+    @conversation = Conversation.find_by(id: params[:conversation_id]) || Conversation.first
     if !@conversation.nil?
-      @conversation = Conversation.find_by(id: params[:conversation_id]) || Conversation.first
       @messages = @conversation.messages
       if @messages.length > 10
         @over_ten = true
@@ -25,22 +25,5 @@ class UsersController < ApplicationController
       end
       @message = @conversation.messages.new
     end
-    @data = []
-    @events = Event.all
-    @events.each do |e|
-    @data << { title: e.title, start: e.start, end: e.end, description: e.description, location: e.location }
-    end
-  end
-
-  def edit
-    @user = User.find(current_user.id)
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  def update
-    @user.update(user_params)
-    redirect_to @user
   end
 end

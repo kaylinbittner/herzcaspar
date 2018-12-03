@@ -38,25 +38,23 @@
       <div class="tab-pane fade" id="driver" role="tabpanel" aria-labelledby="driver-tab">
         <%= render 'shared/matches', matches: Match.where(coordinator_id: current_user.id) %>
         <%= link_to 'Create match', new_match_path, remote: true, class: "next-button" %>
+        <div id="createMatch"></div>
         <%= link_to 'Create event', new_event_path, remote: true, class: "next-button"%>
       </div>
     </div>
   </div>
   <% if flash[:greeting_modal] %>
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $("#greeting-modal").html("<%= j render "greeting_modal"%>");
-      $('#greetingModal').modal('show');
-    });
-  </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#greeting-modal").html("<%= j render "greeting_modal"%>");
+        $('#greetingModal').modal('show');
+      });
+    </script>
   <% end %>
-  <div id="greeting-modal"></div>
-
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $('#rowTab a:first').tab('fade active in');
-    });
-  </script>
+  <div id="greeting-modal">
+  </div>
+  <div id="createEvent">
+  </div>
 </div>
 
 

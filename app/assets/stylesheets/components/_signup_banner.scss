@@ -1,6 +1,29 @@
+.editjoin-container {
+  background-color:#f5f5f561;
+  justify: center;
+  padding-top: 10vh;
+  // margin-right: 150px;
+  width:41vw;
+  height:130vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signupedit-banner {
+  color: white;
+  height: 130vh;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  width: 100vw;
+}
+
+
 .signup-container {
   height: 100%;
 }
+
 
 .signup-banner {
   color: white;
@@ -8,7 +31,9 @@
   background-size: cover;
   position: relative;
   display: flex;
+  width: 100vw;
 }
+
 
 .join-main-header {
   // position: Absolute;
@@ -30,7 +55,7 @@
   padding-top: 10vh;
   // margin-right: 150px;
   width:41vw;
-  height:130vh;
+  height:100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

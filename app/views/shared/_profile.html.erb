@@ -18,14 +18,23 @@
  <!--        <a href="#" class="next-button">Get in touch</a> -->
       </div>
     </div>
-    <% user.interests.each do |interest| %>
-      <div class="card" style="background-image: url( <%=image_path(interest.photo)%>); background-size: cover">
-        <div class="card-content">
-          <h3><%= interest.area %></h3>
-          <p><%= interest.variant %></p>
+    <% if user.interests == [] %>
+      <div class="fill-in-interests-form">
+        <div class="fill-in-interests-form-content">
+          <%#= render 'user_interests/new' %>
         </div>
       </div>
+    <% else %>
+      <% user.interests.each do |interest| %>
+        <div class="card" style="background-image: url( <%=image_path(interest.photo)%>); background-size: cover">
+          <div class="card-content">
+            <h3><%= interest.area %></h3>
+            <p><%= interest.variant %></p>
+          </div>
+        </div>
+      <% end %>
     <% end %>
+
     <div class="description">
       <div class="description-content">
         <h3>More about <%= user.first_name %> <%= user.last_name %></h3>
@@ -35,5 +44,5 @@
       </div>
     </div>
   </div>
-  <div id="myModal"></div>
+  <div id="editUser"></div>
 </div>
