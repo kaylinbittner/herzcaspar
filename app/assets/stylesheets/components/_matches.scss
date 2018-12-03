@@ -1,0 +1,54 @@
+.match {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-evenly;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  margin-right: 0px !important;
+
+}
+ul.matches {
+  padding-right: 40px;
+}
+.match:last-child {
+  border-bottom: none;
+}
+.match-body {
+  flex-grow: 1;
+}
+.match-name {
+  padding-left: 0px;
+}
+.match-name h5 {
+  margin-top: 0px;
+}
+.match-name p {
+  font-size: 13px;
+
+  margin-top: 5px;
+}
+.match-body {
+  padding-left: 10px;
+  color: rgba(0,0,0,0.7);
+}
+.match-body {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: rgba(0,0,0,0.4);
+}
+.match-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+.match-body p {
+  margin: 6px 0;
+}
+.match-status {
+  font-weight: bold;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.match-review {
+  padding-left: 20px;
+  padding-right: 20px;
+}
