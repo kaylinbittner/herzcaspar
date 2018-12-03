@@ -1,0 +1,49 @@
+<div class="modal fade" id="greetingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+   <!-- first modal - greeting the new user-->
+   <div class="modal-content" id="welcome" style="display: block;">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h4 class="modal-title text-center">Welcome to HerzCaspar</h4>
+    </div>
+    <div class="modal-body">
+     Hi,<br> my name is <strong>Fernanda</strong> and I will be responsible for you settling into HerzCaspar.<br><br>  If you have any questions along the way, please feel free to contact me at any time (you can find me in the chat). I will invite you to our next meetup in due course. Please make sure to attend.<br> <br> Best Fernanda<br> <br> PS. In the next step, we want to get to know you a little better
+   </div>
+   <div class="modal-footer">
+    <button type="button" class="next-button"  id="continue">Continue...</button>
+  </div>
+</div>
+<!-- second modal - asking for interests -->
+<div class="second-content" id="interests" style="display: none; background-color: white;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title text-center">What are you up to ?</h4>
+  </div>
+  <div class="modal-body">
+   Form goes in here
+ </div>
+ <div class="modal-footer">
+  <button type="button" class="next-button" data-dismiss="modal">Continue discovering ...</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Changing from first modal to second modal -->
+<script>
+  const click = document.getElementById("continue");
+  click.addEventListener("click", (event) => {
+    document.getElementById("welcome").style.display="none";
+    document.getElementById("interests").style.display="block";
+    console.log("klick works");
+  });
+</script>
+
+
+
+
+
+
