@@ -7,7 +7,7 @@ function setUpQuit(){
   var chatQuit = document.querySelector('.quit-chat');
   var chatWindow = document.querySelector('.chat-window');
   var testId = document.getElementById('test');
-  var element = document.getElementById("messages");
+  var element = document.querySelector('.chat-messages');
   element.scrollTop = element.scrollHeight;
   chatQuit.addEventListener('click', function(){
     if (testId.classList.contains("test-id-closed")) {
