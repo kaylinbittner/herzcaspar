@@ -25,11 +25,15 @@
         </div>
         <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mate</a>
       </li>
+      <% if current_user.role == "buddy" || current_user.role == "patient" %>
+        <li class="nav-item">
+          <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false" style="display: none;">Driver</a>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Driver</a>
+        </li>
       <% end %>
-      <!-- end of if-clause -->
-      <li class="nav-item">
-        <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Driver</a>
-      </li>
     </ul>
     <!-- end of tabs -->
     <div class="tab-content" id="myTabContent">
@@ -46,10 +50,10 @@
         <% if current_user.role.present? %>
         <% if current_user.role == "buddy" %>
         <% if !Match.find_by(buddy_id: current_user.id).nil? %>
-        <%= render 'shared/profile', user: Match.find_by(buddy_id: current_user.id).patient %>
+          <%= render 'shared/match_profile', user: Match.find_by(buddy_id: current_user.id).patient %>
         <% end %>
         <% elsif !Match.find_by(patient_id: current_user.id).nil? %>
-        <%= render 'shared/profile', user: Match.find_by(patient_id: current_user.id).buddy %>
+          <%= render 'shared/match_profile', user: Match.find_by(patient_id: current_user.id).buddy %>
         <% end %>
         <% end %>
       </div>
