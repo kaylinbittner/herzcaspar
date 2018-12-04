@@ -1,4 +1,7 @@
 <div class="chat-window">
+  <div class="quit-chat">
+    x
+  </div>
   <div class="back-arrow">
     <%= link_to ('<i class="fas fa-arrow-left"></i>').html_safe, conversations_path, remote: true  %>
   </div>
@@ -23,8 +26,14 @@
           <% messages.each do |mess| %>
             <% if mess.body %>
               <% user = User.find(mess.user_id) %>
+              <% if mess.user_id == current_user.id %>
+                <p class="message-body my-message"><%= mess.body %></p>
+                <p class="message-time my-message"><%= mess.message_time %></p>
+              <% else %>
                 <p class="message-body"><%= mess.body %></p>
                 <p class="message-time"><%= mess.message_time %></p>
+              <% end %>
+
             <% end %>
           <% end %>
         </div>

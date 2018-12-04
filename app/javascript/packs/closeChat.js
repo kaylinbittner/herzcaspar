@@ -18,4 +18,4 @@ function setUpQuit(){
 }
 
 setUpQuit();
-export { setUpQuit };
+
