@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_01_161923) do
+ActiveRecord::Schema.define(version: 2018_12_03_183541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 2018_12_01_161923) do
     t.string "area"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "varient"
     t.string "photo"
     t.string "variant"
   end
@@ -104,6 +103,7 @@ ActiveRecord::Schema.define(version: 2018_12_01_161923) do
     t.bigint "interest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "transferer"
     t.index ["interest_id"], name: "index_user_interests_on_interest_id"
     t.index ["user_id"], name: "index_user_interests_on_user_id"
   end

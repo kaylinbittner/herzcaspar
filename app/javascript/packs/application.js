@@ -1,4 +1,5 @@
 import "bootstrap";
-import "./closeChat.js";
-
-import { setUpQuit } from './closeChat'
+import "../plugins/flatpickr";
+import "./openEventForm";
+import "./closeChat";
+// import "interestSelcetor";

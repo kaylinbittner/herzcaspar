@@ -1,0 +1,23 @@
+#event-form-form {
+  // display: none;
+  transition: all ease 1s;
+  // opacity: 0;
+  pointer-events: none;
+  transform: translate(100vw);
+  height: 0vh;
+  overflow: hidden;
+}
+.visible {
+  // display: block !important;
+  transform: translate(0) !important;
+  // opacity: 1 !important;
+  pointer-events: auto !important;
+  height: 90vh !important;
+  margin: 3% !important;
+}
+
+.select2-mulitple-guest{
+  width: 900px;
+}
+
+

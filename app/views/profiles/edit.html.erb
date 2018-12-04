@@ -17,7 +17,8 @@
         <%= f.input :first_name, require: true, placeholder: "First Name", label: false%>
         <%= f.input :last_name, require: true, placeholder: "Last Name", label: false %>
         <%= f.input :gender, as: :select, prompt: 'Gender',require: true, collection: ["Male", "Female"],label: false %>
-         <%= f.input :date_of_birth, placeholder: "Date of Birth", as: :string, input_html: {onfocus: "(this.type = 'date')",  onblur:"(this.type='text')"},   html5: true,label: false   %>
+        <%= f.input :role, as: :select, prompt: 'Role',require: true, collection: ["Buddy", "Patient"],label: false %>
+        <%= f.input :date_of_birth, placeholder: "Date of Birth", as: :string, input_html: {onfocus: "(this.type = 'date')",  onblur:"(this.type='text')"},   html5: true,label: false   %>
         <%= f.input :phone, require: true, placeholder: "Phone Number", label:false %>
         <%= f.input :photo, placeholder: "Photo", label: "Your Photo"  %>
         <%= f.input :photo_cache, as: :hidden %>
@@ -33,7 +34,3 @@
    </div>
  </div>
 </div>
-
-
-
-

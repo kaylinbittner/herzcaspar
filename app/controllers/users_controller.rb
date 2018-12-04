@@ -4,6 +4,13 @@ class UsersController < ApplicationController
     @users = User.all
     @conversations = Conversation.all
     set_messages
+    @event = Event.new
+
+    @user_events = UserEvent.where(user: current_user)
+    @data = []
+    @user_events.each do |user_event|
+      @data << { title: user_event.event.title, start: user_event.event.start, end: user_event.event.end, description: user_event.event.description, location: user_event.event.location }
+    end
   end
 
   private

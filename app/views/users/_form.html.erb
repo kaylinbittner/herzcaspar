@@ -1,7 +1,7 @@
   <%= simple_form_for(current_user, url: profile_path) do |f| %>
   <%= f.input :first_name, require: true, placeholder: "First Name", label: "First name"%>
   <%= f.input :last_name, require: true, placeholder: "Last Name", label: "Last name" %>
-  <%= f.input :gender, as: :select, prompt: 'Please select',require: true, collection: ["Male", "Female"],label: false %>
+  <%= f.input :gender, as: :select, prompt: 'Please select',require: true, collection: ["Male", "Female"],label: "Gender" %>
   <%= f.input :phone, require: true, placeholder: "Phone", label: "Phone" %>
   <%= f.input :date_of_birth, as: :date, html5: true, class: "event"  %>
   <%= f.input :city, require: true, placeholder: "What city do you live in?", label: false %>
