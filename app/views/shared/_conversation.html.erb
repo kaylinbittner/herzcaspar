@@ -1,36 +1,44 @@
 <div class="chat-window">
-  <div class="quit-chat">
-    x
+  <div class="chat-header">
+    <h2 class="conv-head">Conversations</h2>
+    <div class="quit-chat">
+      x
+    </div>
   </div>
   <div id="test">
-    <div class="chat-header">
-      <h2 class="conv-head">Conversations</h2>
-    </div>
-    <div class="ui list">
-      <div class="list-item">
-        <% if @conversations.present? %>
-          <% @conversations.each do |conversation| %>
-            <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-              <% if conversation.sender_id == current_user.id %>
-                <% recipient = User.find(conversation.recipient_id) %>
-              <% else %>
-                <% recipient = User.find(conversation.sender_id) %>
+    <div class="list-wrapper">
+      <div class="ui list">
+        <div class="list-item">
+          <% if @conversations.present? %>
+            <% @conversations.each do |conversation| %>
+              <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+                <% if conversation.sender_id == current_user.id %>
+                  <% recipient = User.find(conversation.recipient_id) %>
+                <% else %>
+                  <% recipient = User.find(conversation.sender_id) %>
+                <% end %>
+                <div class="item">
+                  <% full_name = recipient.first_name + recipient.last_name %>
+                  <%= link_to full_name, conversation, remote: true %>
+                </div>
               <% end %>
-              <%= link_to recipient.first_name, conversation, remote: true %>
             <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
-    <div class="conversation-segment">
-      <div class="ui list">
-        <% @users.each do |user| %>
-          <% if user.id != current_user.id %>
-            <div class="item">
-              <%= user.first_name %> <%= link_to "Message me!", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', class: "btn-m", remote: true %>
-            </div>
-          <% end %>
-        <% end %>
+      <div class="conversation-segment">
+        <div class="ui list">
+          <div class="list-item">
+            <% @users.each do |user| %>
+              <% if user.id != current_user.id %>
+                <div class="item">
+                  <% user_full_name = user.first_name + user.last_name %>
+                  <%= link_to user_full_name, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', remote: true %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
