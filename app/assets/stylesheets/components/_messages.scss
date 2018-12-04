@@ -3,7 +3,6 @@
 }
 
 #chat {
-  height: 63vh;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -13,31 +12,33 @@
   right: 0;
 }
 
-.conversation-segment {
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
 .chat-header {
 
 }
 
-.conv-head {
-  margin: 10px 0px;
-  color: #7BBBE3;
-}
-
-.list-item {
-  color: gray !important;
-  padding-left: 5%;
-  padding-top: 2%;
-  display: flex;
-  flex-direction: column;
-}
-
-.list-item:hover a {
-  text-decoration: none !important;
-  opacity: 0.8;
+.list-wrapper {
+  height: 250px;
+  overflow: scroll;
+  .list-item {
+    padding-left: 5%;
+    padding-top: 2%;
+    padding-right: 5%;
+    display: flex;
+    flex-direction: column;
+    :hover {
+      color: black;
+    }
+  }
+  .item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2%;
+    border-bottom: 1px solid gray;
+    a {
+      text-decoration: none;
+      color: gray;
+    }
+  }
 }
 
 .message-body {
@@ -60,17 +61,11 @@
 }
 
 #test {
-
+  width: 300px;
 }
 
 .chat-messages {
 
-}
-
-.item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 2%;
 }
 
 #new_message {
@@ -83,14 +78,7 @@
   }
 }
 
-.conv-head {
-  margin: 10px 0px;
-  color: #7BBBE3;
-}
-
 .chat-window{
-  height: 500px;
-  max-height: 500px;
   width: 300px;
   margin: 0 0 0 0;
   background-color: white;
@@ -114,16 +102,11 @@
   width: fit-content;
   height: fit-content;
   cursor: pointer;
-  width: -webkit-fill-available;
-  display: flex;
-  justify-content: flex-end;
-  h1{
-    font-size: 18px;
-    margin: 0;
-    position: absolute;
-    right: 12px;
-    top: 3px;
-  }
+  font-size: 18px;
+  margin: 0;
+  position: absolute;
+  right: 7px;
+  top: 0px;
 }
 
 .chat-window-closed{
@@ -133,14 +116,17 @@
 .chat-header{
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
   background-color: #d3d3d329;
   height: 60%;
-  width: 300px;
   color: #000000c9;
+  width: 300px;
+  justify-content: space-around;
   .chat-title{
     margin: 0 0 0 0;
+  }
+  .conv-head{
+    margin: 10px 0px;
+    color: #7BBBE3;
   }
   img{
     z-index: 1;
