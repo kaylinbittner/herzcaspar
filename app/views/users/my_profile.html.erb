@@ -42,10 +42,10 @@
         <%= link_to 'Create event', new_event_path, remote: true, class: "next-button"%>
         <div id="createEvent"></div>
       </div>
-      <div id="chat">
-        <%= render  'shared/conversation', conversations: @conversations, users: @users %>
-      </div>
     </div>
+  </div>
+  <div id="chat">
+    <%= render  'shared/conversation', conversations: @conversations, users: @users %>
   </div>
 </div>
 

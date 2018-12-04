@@ -3,9 +3,14 @@
 }
 
 #chat {
-  position: sticky;
-  -webkit-mask-position-x: right;
-  -webkit-mask-position-y: bottom;
+  height: 63vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  color: black;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .conversation-segment {
@@ -50,6 +55,8 @@
 #messages {
   display: flex;
   flex-direction: column;
+  height: 100px;
+  overflow: scroll;
 }
 
 #test {
@@ -82,7 +89,7 @@
 }
 
 .chat-window{
-  height: calc(100% - 35px);
+  height: 500px;
   max-height: 500px;
   width: 300px;
   margin: 0 0 0 0;
@@ -109,8 +116,7 @@
   cursor: pointer;
   width: -webkit-fill-available;
   display: flex;
-  justify-content: center;
-  position: relative;
+  justify-content: flex-end;
   h1{
     font-size: 18px;
     margin: 0;
@@ -121,7 +127,7 @@
 }
 
 .chat-window-closed{
-  height: 20%;
+  height: 7%;
 }
 
 .chat-header{

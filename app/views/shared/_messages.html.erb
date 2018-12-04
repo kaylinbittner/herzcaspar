@@ -17,11 +17,6 @@
     </div>
     <div class="messages-wrapper">
       <div class="chat-messages">
-        <% if over_ten %>
-          <div class="over_ten">
-            <%= link_to 'Show Previous', '?m=all' %>
-          </div>
-        <% end %>
         <div id="messages">
           <% messages.each do |mess| %>
             <% if mess.body %>

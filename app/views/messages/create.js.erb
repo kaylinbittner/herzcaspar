@@ -4,13 +4,17 @@ function appendNewMessage() {
   messages.insertAdjacentHTML('beforeend', newMessage);
   const inputBox = document.getElementById('message_body');
   inputBox.value = "";
+
+  messages.scrollTop = messages.scrollHeight;
+  setUpQuit();
 }
 
 function setUpQuit(){
   var chatQuit = document.querySelector('.quit-chat');
   var chatWindow = document.querySelector('.chat-window');
   var testId = document.getElementById('test');
-
+  var element = document.getElementById("messages");
+  element.scrollTop = element.scrollHeight;
   chatQuit.addEventListener('click', function(){
 
     if (testId.classList.contains("test-id-closed")) {
@@ -26,4 +30,3 @@ function setUpQuit(){
 }
 
 appendNewMessage();
-setUpQuit();
