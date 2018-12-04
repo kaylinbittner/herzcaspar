@@ -1,32 +1,27 @@
 class UserInterestsController < ApplicationController
   def new
     @user_interest = UserInterest.new
-    @interests = Interest.all
+    @interests = Interest.select(:area).distinct
     @area_array = []
-    @interests.all.each { |interest| @area_array << interest.area}
+    @interests.all.each { |interest| @area_array << interest.area }
+    @sports = Interest.where(area: "sport")
+    @movies = Interest.where(area: "movies")
+    @books = Interest.where(area: "books")
   end
 
   def create
     user_interest = UserInterest.new(user_interests_params)
-    if user_interest.save
-      redirect_to my_profile_path
-    else
-      render :new
+    interest_array = user_interest.transferer.split(",").drop(1)
+    interest_array.each do |interest|
+      interest = UserInterest.new(user_id: current_user.id, interest_id: interest)
+      interest.save
     end
+    redirect_to my_profile_path
   end
 
   private
 
-  def get_variant
-    interest_id = params[:interest_id]
-    @interest = Interest.find(interest_id)
-    @variant_array = []
-    Interest.all.where(area: @interest.area).each { |interest| @variant_array << interest.variant }
-
-    render json: @variant
-  end
-
   def user_interests_params
-    params.require(:user_interests).permit(:interest)
+    params.require(:user_interest).permit(:transferer)
   end
 end
