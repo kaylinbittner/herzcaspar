@@ -1,0 +1,30 @@
+<div class="card-container">
+  <div class="profile text-center">
+    <div class="main">
+      <div class="main-content">
+        <% if user.photo.present? %>
+          <%= image_tag user.photo.url(:bright_face), class: "avatar" %>
+        <% else %>
+          <div class="avatar-placeholder-navbar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+            <h1>
+              <%= user.email.first.upcase %>
+            </h1>
+          </div>
+        <% end %>
+        <h2><span class="profile-name"><%= user.first_name %> <%= user.last_name %></span></h2>
+        <p><span class="profile-email"><%= user.email %></span></p>
+        <p><span class="profile-dob"><%= user.date_of_birth %></span></p>
+        <a href="#" class="next-button">Get in touch</a>
+      </div>
+    </div>
+    <div class="description">
+      <div class="description-content">
+        <h3>More about <%= user.first_name %> <%= user.last_name %></h3>
+        <p class="text-justify">
+          <%= user.bio %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="editUser"></div>
+</div>

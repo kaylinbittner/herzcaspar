@@ -10,9 +10,16 @@
       <li class="nav-item">
         <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mate</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Driver</a>
-      </li>
+      <% if current_user.role == "buddy" || current_user.role == "patient" %>
+        <li class="nav-item">
+          <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false" style="display: none;">Driver</a>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Driver</a>
+        </li>
+
+      <% end %>
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade active in " id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -27,21 +34,33 @@
         <% if current_user.role.present? %>
         <% if current_user.role == "buddy" %>
         <% if !Match.find_by(buddy_id: current_user.id).nil? %>
-        <%= render 'shared/profile', user: Match.find_by(buddy_id: current_user.id).patient %>
+          <%= render 'shared/match_profile', user: Match.find_by(buddy_id: current_user.id).patient %>
         <% end %>
         <% elsif !Match.find_by(patient_id: current_user.id).nil? %>
-        <%= render 'shared/profile', user: Match.find_by(patient_id: current_user.id).buddy %>
+          <%= render 'shared/match_profile', user: Match.find_by(patient_id: current_user.id).buddy %>
         <% end %>
         <% end %>
       </div>
-
-      <div class="tab-pane fade" id="driver" role="tabpanel" aria-labelledby="driver-tab">
-        <%= render 'shared/matches', matches: Match.where(coordinator_id: current_user.id) %>
-        <%= link_to 'Create match', new_match_path, remote: true, class: "next-button" %>
-        <div id="createMatch"></div>
-        <%= link_to 'Create event', new_event_path, remote: true, class: "next-button", id: "create-event"%>
-        <div id="createEvent"></div>
-        <%= render "events/form" %>
+      <div>
+        <% if current_user.role == "buddy" || current_user.role == "patient" %>
+        <div class="tab-pane fade" id="driver" role="tabpanel" aria-labelledby="driver-tab" style="display: none;">
+          <%= render 'shared/matches', matches: Match.where(coordinator_id: current_user.id) %>
+          <%= link_to 'Create match', new_match_path, remote: true, class: "next-button" %>
+          <div id="createMatch"></div>
+          <%= link_to 'Create event', new_event_path, remote: true, class: "next-button", id: "create-event"%>
+          <div id="createEvent"></div>
+          <%= render "events/form" %>
+        </div>
+        <% else %>
+          <div class="tab-pane fade" id="driver" role="tabpanel" aria-labelledby="driver-tab">
+            <%= render 'shared/matches', matches: Match.where(coordinator_id: current_user.id) %>
+            <%= link_to 'Create match', new_match_path, remote: true, class: "next-button" %>
+            <div id="createMatch"></div>
+            <%= link_to 'Create event', new_event_path, remote: true, class: "next-button", id: "create-event"%>
+            <div id="createEvent"></div>
+            <%= render "events/form" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
