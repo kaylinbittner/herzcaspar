@@ -1,4 +1,4 @@
-  <%= simple_form_for(current_user, url: profile_path) do |f| %>
+<%= simple_form_for(current_user, url: profile_path) do |f| %>
   <%= f.input :first_name, require: true, placeholder: "First Name", label: "First name"%>
   <%= f.input :last_name, require: true, placeholder: "Last Name", label: "Last name" %>
   <%= f.input :gender, as: :select, prompt: 'Please select',require: true, collection: ["Male", "Female"],label: "Gender" %>
@@ -9,5 +9,4 @@
   <%= f.input :photo_cache, as: :hidden %>
   <%= f.input :bio, require: true, placeholder: "Please tell us a little about yourself", label: "Bio" %>
   <%= f.button :submit, class:"next-button" %>
-  <% end %>
-
+<% end %>

@@ -1,27 +1,27 @@
 <ul class="matches">
   <% if matches.present? %>
-  <% matches.each do |m| %>
-  <li class="match">
-    <div class="match-name">
-      <%= image_tag m.buddy.photo.url, class: "avatar-small" %>
-    </div>
-    <div class="match-name">
-      <h5><%= m.buddy.first_name %> <%= m.buddy.last_name %></h5>
-      <%= m.buddy.role.capitalize %>
-    </div>
-    <div class="match-name">
-      <%= image_tag m.patient.photo.url, class: "avatar-small" %>
-    </div>
-    <div class="match-name">
-     <h5><%= m.patient.first_name %> <%= m.patient.last_name %></h5>
-      <%= m.patient.role.capitalize %>
-    </div>
-    <div class="match-name">
-     <h5>Buddies since</h5>
-     <%= m.created_at.strftime("%Y-%m-%d") %>
-    </div>
-  </li>
- <% end %>
- <% end %>
+    <% matches.each do |m| %>
+      <li class="match">
+        <div class="match-name">
+          <%= image_tag m.buddy.photo.url, class: "avatar-small" %>
+        </div>
+        <div class="match-name">
+          <h5><%= m.buddy.first_name %> <%= m.buddy.last_name %></h5>
+          <%= m.buddy.role.capitalize %>
+        </div>
+        <div class="match-name">
+          <%= image_tag m.patient.photo.url, class: "avatar-small" %>
+        </div>
+        <div class="match-name">
+          <h5><%= m.patient.first_name %> <%= m.patient.last_name %></h5>
+          <%= m.patient.role.capitalize %>
+        </div>
+        <div class="match-name">
+         <h5>Buddies since</h5>
+         <%= m.created_at.strftime("%Y-%m-%d") %>
+        </div>
+      </li>
+    <% end %>
+  <% end %>
 </ul>
 
