@@ -9,8 +9,8 @@
     <div class="list-wrapper">
       <div class="ui list">
         <div class="list-item">
+          <% conversations_array = [] %>
           <% if @conversations.present? %>
-            <% conversations_array = [] %>
             <% @conversations.each do |conversation| %>
               <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
                 <% if conversation.sender_id == current_user.id %>
@@ -21,7 +21,7 @@
                 <div class="item">
                   <div class="convo-avatar"style=" background-image: url(<%= recipient.photo %>);">
                   </div>
-                  <% full_name = recipient.first_name + " " + recipient.last_name %>
+                  <% full_name = "#{recipient.first_name} #{recipient.last_name}" %>
                   <% conversations_array.push(recipient.id) %>
                   <%= link_to full_name, conversation, remote: true %>
                 </div>
@@ -34,16 +34,20 @@
         <div class="ui list">
           <div class="list-item">
             <% @users.each do |user| %>
-              <% if !conversations_array == [] %>
-                <% if user.id != current_user.id && !conversations_array.include?(user.id)%>
+              <% if conversations_array == [] %>
+                <% if user.id != current_user.id %>
                   <div class="item">
+                    <div class="convo-avatar"style=" background-image: url(<%= user.photo %>);">
+                    </div>
                     <% user_full_name = "#{user.first_name} #{user.last_name}" %>
                     <%= link_to user_full_name, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', remote: true %>
                   </div>
                 <% end %>
               <% else %>
-                <% if user.id != current_user.id %>
+                <% if user.id != current_user.id && !conversations_array.include?(user.id)%>
                   <div class="item">
+                    <div class="convo-avatar"style=" background-image: url(<%= user.photo %>);">
+                    </div>
                     <% user_full_name = "#{user.first_name} #{user.last_name}" %>
                     <%= link_to user_full_name, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', remote: true %>
                   </div>
