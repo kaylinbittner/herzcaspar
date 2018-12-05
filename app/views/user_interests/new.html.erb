@@ -2,10 +2,12 @@
   <div class="interest-background-gradient">
     <div style="padding-top: 15%;">
       <div class="interest-container">
+        <h2 style="text-align: center; color: black;">We'd love to get to know you!</h2>
         <% 3.times do %>
         <div class="somethimg">
-        <select id="areas" class="areas">
-          <%= @area_array.each do |area| %>
+        <select id="areas" class="areas" style="margin-right: auto;">
+
+          <option value="Default"> - Select a Category - </option>          <%= @area_array.each do |area| %>
           <option value='<%= area %>'> <%= area %></option>
           <% end %>
         </select>
@@ -19,15 +21,17 @@
           <option value="<%= book.id %>"><%= book.variant %></option>
           <% end %>
         </select>
-          <select class="select" name="" id="movies">
+        <select class="select" name="" id="movies">
           <%= @movies.each do |movie| %>
           <option value="<%= movie.id %>"><%= movie.variant %></option>
           <% end %>
         </select>
+        <select class="select" name="">
+          <option value="" selected="selected"> - Select One - </option>
+        </select>
         </div>
         <% end %>
-
-        <div class="next-button" id="fake-btn">Continue discovering HerzCaspar</div>
+        <%= link_to "Continue discovering HerzCaspar", my_profile_path, class: "next-button", id:"fake-btn"  %>
         <%= simple_form_for (@user_interest) do |u| %>
         <%= u.input :transferer%>
         <%= u.button :submit, id:'truesubmit' %>
