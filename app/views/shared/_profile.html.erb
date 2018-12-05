@@ -3,21 +3,22 @@
     <div class="main">
       <div class="main-content">
         <% if user.photo.present? %>
-          <%= image_tag user.photo.url(:bright_face), class: "avatar" %>
+        <%= image_tag user.photo.url(:bright_face), class: "avatar" %>
         <% else %>
-          <div class="avatar-placeholder-navbar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-            <h1>
-              <%= user.email.first.upcase %>
-            </h1>
-          </div>
+        <div class="avatar-placeholder-navbar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+          <h1>
+            <%= user.email.first.upcase %>
+          </h1>
+        </div>
         <% end %>
         <h2><span class="profile-name"><%= user.first_name %> <%= user.last_name %></span></h2>
-        <p><span class="profile-email"><%= user.email %></span></p>
-        <p><span class="profile-dob"><%= user.date_of_birth %></span></p>
-        <%= link_to 'Update', edit_user_path(current_user.id), remote: true, class: "next-button"%>
- <!--        <a href="#" class="next-button">Get in touch</a> -->
-      </div>
-    </div>
+        <p>Member of the Caspar comunity since: <span class="profile-created_at"><%=  user.created_at.strftime("%m/%d/%Y") %></span></p>
+<!--    <p><span class="profile-email"><%= user.email %></span></p>
+  <p><span class="profile-dob"><%= user.date_of_birth %></span></p> -->
+  <%= link_to 'Update', edit_user_path(current_user.id), remote: true, class: "next-button"%>
+  <!--        <a href="#" class="next-button">Get in touch</a> -->
+</div>
+</div>
 <!--     <%# if user.interests == [] %>
       <div class="fill-in-interests-form">
         <div class="fill-in-interests-form-content">
@@ -33,16 +34,16 @@
           </div>
         </div>
       <%# end %>
-    <%# end %> -->
+      <%# end %> -->
 
-    <div class="description">
-      <div class="description-content">
-        <h3>More about <%= user.first_name %> <%= user.last_name %></h3>
-        <p class="text-justify">
-          <%= user.bio %>
-        </p>
+      <div class="description">
+        <div class="description-content">
+          <h3>More about yourself <%#= user.first_name %> <%#= user.last_name %></h3>
+          <p class="text-justify">
+            <%= user.bio %>
+          </p>
+        </div>
       </div>
     </div>
+    <div id="editUser"></div>
   </div>
-  <div id="editUser"></div>
-</div>
