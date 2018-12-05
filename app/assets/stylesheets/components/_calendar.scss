@@ -3,7 +3,7 @@
 }
 
 .fc-center {
-  color: #A31636;
+  color: $red;
 }
 
 .fc-list-heading-main {
@@ -17,4 +17,21 @@
 .fc-list-empty {
   color: #A31636;
   font-size: 30px;
+}
+
+.fc-list-item-time {
+  font-weight: bolder;
+}
+
+.fc-list-item-title {
+  font-weight: bolder;
+}
+
+.fc-list-item:hover {
+  opacity: 0.6;
+}
+
+
+.table > thead > tr > td.active, .table > thead > tr > th.active, .table > thead > tr.active > td, .table > thead > tr.active > th, .table > tbody > tr > td.active, .table > tbody > tr > th.active, .table > tbody > tr.active > td, .table > tbody > tr.active > th, .table > tfoot > tr > td.active, .table > tfoot > tr > th.active, .table > tfoot > tr.active > td, .table > tfoot > tr.active > th {
+  background-color: $light-gray;
 }

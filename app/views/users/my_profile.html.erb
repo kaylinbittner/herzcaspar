@@ -17,13 +17,19 @@
           </div>
           <a class="nav-link" id="no-match-tab" data-toggle="tab" href="#no-match" role="tab" aria-controls="no-match" aria-selected="false">Mate</a>
         </li>
-        <!-- if yes -->
+      <!-- if yes -->
       <% else %>
         <li class="nav-item" id="got-mate">
           <div class="badge-container" id="badge-container" style="block">
             <div class="badge positive"><i class="fas fa-check"></i></i></div>
           </div>
           <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mate</a>
+        </li>
+      <% end %>
+      <!-- end of if-clause -->
+      <% if current_user.role == "coordinator" %>
+        <li class="nav-item">
+          <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Driver</a>
         </li>
       <% end %>
         <% if current_user.role == "coordinator" %>
@@ -92,8 +98,5 @@
       });
     <% end %>
   </script>
-
-
-  <div id="greeting-modal">
-  </div>
+  <div id="greeting-modal"></div>
 </div>

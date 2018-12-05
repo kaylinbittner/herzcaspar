@@ -1,5 +1,4 @@
 class ProfilesController < ApplicationController
-
   layout "signup"
 
   def edit

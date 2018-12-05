@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user_events = UserEvent.where(user: current_user)
     @data = []
     @user_events.each do |user_event|
-      @data << { title: user_event.event.title, start: user_event.event.start, end: user_event.event.end, description: user_event.event.description, location: user_event.event.location }
+      @data << { id: user_event.id, title: user_event.event.title, start: user_event.event.start, end: user_event.event.end, description: user_event.event.description, location: user_event.event.location, color: user_event.attendance_color }
     end
     @match = Match.find_by(buddy_id: current_user.id)
   end

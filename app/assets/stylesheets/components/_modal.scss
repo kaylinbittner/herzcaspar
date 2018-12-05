@@ -1,7 +1,14 @@
-.modal-header{
-  color: $blue;
+.modal-header {
+  background-color: $blue;
+  color: white;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .modal-body{
   color: $blue;
+}
+
+
+.modal-content {
+  border-radius: 10px;
 }
