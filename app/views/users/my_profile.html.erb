@@ -25,16 +25,12 @@
           </div>
           <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mate</a>
         </li>
-        <% if current_user.role == "buddy" || current_user.role == "patient" %>
-          <li class="nav-item">
-            <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false" style="display: none;">Driver</a>
-          </li>
-        <% else %>
+      <% end %>
+        <% if current_user.role == "coordinator" %>
           <li class="nav-item">
             <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Driver</a>
           </li>
         <% end %>
-      <% end %>
     </ul>
     <!-- end of tabs -->
     <div class="tab-content" id="myTabContent">
