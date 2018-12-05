@@ -5,4 +5,4 @@ flatpickr(".datepicker", {
   altInput: true,
   enableTime: true
 })
-console.log("hello from flatpickr")
+
