@@ -10,10 +10,16 @@
   <div id="test">
     <div class="chat-header">
       <% if conversation.sender_id == current_user.id %>
-        <%= image_tag User.find(conversation.recipient_id).photo.url(:bright_face), class: 'chat-avatar'%>
+        <% u = User.find(conversation.recipient_id) %>
+        <% if u.photo.url.present? %>
+          <%= image_tag u.photo.url(:bright_face), class: 'chat-avatar'%>
+        <% end %>
         <h2><%= User.find(conversation.recipient_id).first_name%></h2>
       <% else %>
-        <%= image_tag User.find(conversation.sender_id).photo.url(:bright_face), class: 'chat-avatar'%>
+        <% u = User.find(conversation.sender_id) %>
+        <% if u.photo.url.present? %>
+          <%= image_tag u.photo.url(:bright_face), class: 'chat-avatar'%>
+        <% end %>
         <h2 class="conv-head"><%= User.find(conversation.sender_id).first_name %></h2>
       <% end %>
     </div>
@@ -24,20 +30,20 @@
             <% if mess.body %>
               <% user = User.find(mess.user_id) %>
               <div class="messagecontainer">
-              <% if mess.user_id == current_user.id %>
-              <div class="messfirst">
-                <div class="my-avatar" style="background-image: url(<%= mess.user.photo %>)">
-                </div>
-                <p class="message-body my-message"><%= mess.body %></p>
-              </div>
-                <p class="my-time"><%= mess.message_time %></p>
-            <% else %>
-              <div class="messsecond">
-                <div class="not-my-avatar" style="background-image: url(<%= mess.user.photo %>)"></div>
-                <p class="message-body"><%= mess.body %></p>
-              </div>
-                <p class="message-time"><%= mess.message_time %></p>
-              <% end %>
+                <% if mess.user_id == current_user.id %>
+                  <div class="messfirst">
+                    <div class="my-avatar" style="background-image: url(<%= mess.user.photo %>)">
+                    </div>
+                    <p class="message-body my-message"><%= mess.body %></p>
+                  </div>
+                  <p class="my-time"><%= mess.message_time %></p>
+                <% else %>
+                  <div class="messsecond">
+                    <div class="not-my-avatar" style="background-image: url(<%= mess.user.photo %>)"></div>
+                    <p class="message-body"><%= mess.body %></p>
+                  </div>
+                  <p class="message-time"><%= mess.message_time %></p>
+                <% end %>
               </div>
             <% end %>
           <% end %>

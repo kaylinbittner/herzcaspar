@@ -13,12 +13,19 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.chat-closed{
+  height: 4%;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 5px 5px 5px 5px;
+}
+
 .chat-header {
 
 }
 
 .list-wrapper {
-  height: 250px;
+  height: 300px;
   overflow: scroll;
   .list-item {
     padding-left: 5%;
@@ -77,20 +84,13 @@
   margin-right: auto;
 }
 
-#messages {
-  display: flex;
-  flex-direction: column;
-
-
-}
-
 #test {
   width: 300px;
 }
 
 .chat-messages {
-    height: 40vh;
-    overflow: scroll;
+  height: 40vh;
+  overflow: scroll;
 }
 
 #new_message {
@@ -132,6 +132,14 @@
   position: absolute;
   right: 7px;
   top: 0px;
+}
+
+.quit-chat-closed{
+  cursor: pointer;
+  font-size: 20px;
+  position: absolute;
+  top: 10%;
+  right: 43%;
 }
 
 .chat-window-closed{
@@ -190,11 +198,14 @@
   background-color: #8FD694;
   color: white;
 }
+
 .messages-wrapper{
-display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 300px;
+}
+
 .messsecond {
   display: flex;
   align-items: flex-end;
@@ -209,7 +220,7 @@ display: flex;
     padding: 0 5%;
     border-radius: 5px;
   }
-  .my-avatar{
+  .my-avatar {
     height: 20px;
     width: 20px;
     border-radius: 50%;
