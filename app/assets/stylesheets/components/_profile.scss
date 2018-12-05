@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  border-radius: 20px;
 }
 
 /* TODO: design a CSS grid layout for user dashboard */
@@ -18,6 +19,7 @@
 }
 .profile-name {
   color: black;
+  font-weight: bolder;
 }
 .profile-email {
   color: black;
@@ -35,6 +37,15 @@
   color: black;
 }
 
+
+.card-shadow {
+  background-image: linear-gradient(50deg, transparent 0%, rgba(0, 0, 0, 0.8) 60%);
+  opacity: 0.9;
+  filter: alpha(opacity=5);
+  padding: 60px;
+  margin: 10px;
+}
+
 .card h3 {
   font-size: 28px;
   margin-bottom: 15px;
@@ -49,12 +60,15 @@
 .description h3 {
   color: rgba(0,0,0,0.9);
   font-size: 21px;
-  font-weight: normal;
+  // margin-left: 10px;
+  font-weight: bolder;
 }
 
 .description p {
-  color: rgba(0,0,0,0.5);
-  font-weight: lighter;
+  color: #808080;
+  font-weight: normal;
+  margin: 10px;
+  font-size: 16px;
 }
 
 .profile .btn {
@@ -82,6 +96,8 @@
 .description {
   grid-row: 2 / span 1;
   grid-column: 2 / span 3;
+  // padding: 10px;
+  // text-align: left;
 }
 
 .card-container {
