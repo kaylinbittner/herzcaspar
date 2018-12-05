@@ -23,8 +23,8 @@ $(document).ready(function() {
         events: json,
 
         eventClick:  function(calEvent) {
-          const id = calEvent.id
-          const attend = (event) => {
+          var id = calEvent.id
+          var attend = (event) => {
             fetch(`http://localhost:3000/user_events/${id}`, {
               method: "PATCH",
               headers: {
@@ -35,7 +35,7 @@ $(document).ready(function() {
             $(this).css('color', 'green');
           }
 
-          const dismiss = (event) => {
+          var dismiss = (event) => {
             fetch(`http://localhost:3000/user_events/${id}`, {
               method: "PATCH",
               headers: {
