@@ -3,27 +3,20 @@
     <!-- start of tabs -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My Profile</a>
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Calendar</a>
       </li>
       <!-- Checking if match has been assigned -->
       <% if @match.blank? %>
-      <!-- if no   -->
-        <li class="nav-item" id="mate">
-          <div class="badge-container" id="badge-container" style="block">
-            <div class="badge negative"><i class="fas fa-times"></i></div>
-          </div>
-          <a class="nav-link" id="no-match-tab" data-toggle="tab" href="#no-match" role="tab" aria-controls="no-match" aria-selected="false">Mate</a>
-        </li>
-      <!-- if yes -->
+      <!-- if no -->
       <% else %>
         <li class="nav-item" id="got-mate">
           <div class="badge-container" id="badge-container" style="block">
             <div class="badge positive"><i class="fas fa-check"></i></i></div>
           </div>
-          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mate</a>
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My Mate</a>
         </li>
       <% end %>
       <!-- end of if-clause -->
@@ -32,17 +25,12 @@
           <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Driver</a>
         </li>
       <% end %>
-        <% if current_user.role == "coordinator" %>
-          <li class="nav-item">
-            <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Driver</a>
-          </li>
-        <% end %>
     </ul>
     <!-- end of tabs -->
     <div class="tab-content" id="myTabContent">
 
       <div class="tab-pane fade active in " id="home" role="tabpanel" aria-labelledby="home-tab">
-        <%= render 'shared/profile', user: current_user %>
+        timeline goes in herer
       </div>
 
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -60,17 +48,6 @@
           <% end %>
         <% end %>
       </div>
-
-      <div class="tab-pane fade" id="no-match" role="tabpanel" aria-labelledby="no-match-tab">
-        <div class="description">
-          <div class="description-content">
-            <h3>You don´t have a mate yet. Make sure to get involved</h3>
-            <p class="text-justify"> We offer a great variety of events, where you get get to know your future mate. Also check regularly the calendar for new events ;)
-            </p>
-          </div>
-        </div>
-      </div>
-
       <div class="tab-pane fade" id="driver" role="tabpanel" aria-labelledby="driver-tab">
         <%= render 'shared/matches', matches: Match.where(coordinator_id: current_user.id) %>
         <%= link_to 'Create match', new_match_path, remote: true, class: "next-button" %>
@@ -86,11 +63,6 @@
     <%= render  'shared/conversation', conversations: @conversations, users: @users %>
   </div>
   <script type="text/javascript">
-    $(document).ready(function(){
-      $('#got-mate').bind('click', function() {
-        $('.badge').remove();
-      });
-    });
     <% if flash[:greeting_modal] %>
       $(document).ready(function(){
         $("#greeting-modal").html("<%= j render "greeting_modal"%>");

@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
   def update
     # SAVE THE INFORMATION SENT BY THE FORM
     if current_user.update(user_params)
-      redirect_to my_profile_path, flash: { greeting_modal: true }
+      redirect_to my_profile_path
     else
       render :edit
     end
