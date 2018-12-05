@@ -1,5 +1,5 @@
 function appendNewMessage() {
-  const newMessage = "<p class='message-body'><%= @message.body %></p><p class='message-time'><%= @message.message_time %></p>";
+  const newMessage = "<div class='messagecontainer'><div class='messfirst'><div class='not-my-avatar' style='background-image: url(<%= current_user.photo %>)'></div><p class='message-body my-message'><%= @message.body %></p></div><p class='my-time'><%= @message.message_time %></p></div>";
   const messages = document.getElementById('messages');
   messages.insertAdjacentHTML('beforeend', newMessage);
   const inputBox = document.getElementById('message_body');

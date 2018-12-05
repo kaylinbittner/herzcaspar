@@ -30,20 +30,20 @@
             <% if mess.body %>
               <% user = User.find(mess.user_id) %>
               <div class="messagecontainer">
-              <% if mess.user_id == current_user.id %>
-              <div class="messfirst">
-                <div class="my-avatar" style="background-image: url(<%= mess.user.photo %>)">
-                </div>
-                <p class="message-body my-message"><%= mess.body %></p>
-              </div>
-                <p class="my-time"><%= mess.message_time %></p>
-            <% else %>
-              <div class="messsecond">
-                <div class="not-my-avatar" style="background-image: url(<%= mess.user.photo %>)"></div>
-                <p class="message-body"><%= mess.body %></p>
-              </div>
-                <p class="message-time"><%= mess.message_time %></p>
-              <% end %>
+                <% if mess.user_id == current_user.id %>
+                  <div class="messfirst">
+                    <div class="my-avatar" style="background-image: url(<%= mess.user.photo %>)">
+                    </div>
+                    <p class="message-body my-message"><%= mess.body %></p>
+                  </div>
+                  <p class="my-time"><%= mess.message_time %></p>
+                <% else %>
+                  <div class="messsecond">
+                    <div class="not-my-avatar" style="background-image: url(<%= mess.user.photo %>)"></div>
+                    <p class="message-body"><%= mess.body %></p>
+                  </div>
+                  <p class="message-time"><%= mess.message_time %></p>
+                <% end %>
               </div>
             <% end %>
           <% end %>
