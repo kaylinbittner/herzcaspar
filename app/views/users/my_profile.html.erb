@@ -11,25 +11,27 @@
       <!-- Checking if match has been assigned -->
       <% if @match.blank? %>
       <!-- if no   -->
-      <li class="nav-item" id="mate">
-        <div class="badge-container" id="badge-container" style="block">
-          <div class="badge negative"><i class="fas fa-times"></i></div>
-        </div>
-        <a class="nav-link" id="no-match-tab" data-toggle="tab" href="#no-match" role="tab" aria-controls="no-match" aria-selected="false">Mate</a>
-      </li>
+        <li class="nav-item" id="mate">
+          <div class="badge-container" id="badge-container" style="block">
+            <div class="badge negative"><i class="fas fa-times"></i></div>
+          </div>
+          <a class="nav-link" id="no-match-tab" data-toggle="tab" href="#no-match" role="tab" aria-controls="no-match" aria-selected="false">Mate</a>
+        </li>
       <!-- if yes -->
       <% else %>
-      <li class="nav-item" id="got-mate">
-        <div class="badge-container" id="badge-container" style="block">
-          <div class="badge positive"><i class="fas fa-check"></i></i></div>
-        </div>
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mate</a>
-      </li>
+        <li class="nav-item" id="got-mate">
+          <div class="badge-container" id="badge-container" style="block">
+            <div class="badge positive"><i class="fas fa-check"></i></i></div>
+          </div>
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mate</a>
+        </li>
       <% end %>
       <!-- end of if-clause -->
-      <li class="nav-item">
-        <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Driver</a>
-      </li>
+      <% if current_user.role == "coordinator" %>
+        <li class="nav-item">
+          <a class="nav-link" id="driver-tab" data-toggle="tab" href="#driver" role="tab" aria-controls="driver" aria-selected="false">Driver</a>
+        </li>
+      <% end %>
     </ul>
     <!-- end of tabs -->
     <div class="tab-content" id="myTabContent">
@@ -44,13 +46,13 @@
 
       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
         <% if current_user.role.present? %>
-        <% if current_user.role == "buddy" %>
-        <% if !Match.find_by(buddy_id: current_user.id).nil? %>
-        <%= render 'shared/profile', user: Match.find_by(buddy_id: current_user.id).patient %>
-        <% end %>
-        <% elsif !Match.find_by(patient_id: current_user.id).nil? %>
-        <%= render 'shared/profile', user: Match.find_by(patient_id: current_user.id).buddy %>
-        <% end %>
+          <% if current_user.role == "buddy" %>
+            <% if !Match.find_by(buddy_id: current_user.id).nil? %>
+              <%= render 'shared/profile', user: Match.find_by(buddy_id: current_user.id).patient %>
+            <% end %>
+          <% elsif !Match.find_by(patient_id: current_user.id).nil? %>
+            <%= render 'shared/profile', user: Match.find_by(patient_id: current_user.id).buddy %>
+          <% end %>
         <% end %>
       </div>
       <div class="tab-pane fade" id="no-match" role="tabpanel" aria-labelledby="no-match-tab">
@@ -76,21 +78,16 @@
     $(document).ready(function(){
       $('#got-mate').bind('click', function() {
         $('.badge').remove();
-        console.log("badge hopefully not there anymore!")
-      // alert('User clicked on "foo."');
-    });
+      });
     });
     <% if flash[:greeting_modal] %>
-    $(document).ready(function(){
-      $("#greeting-modal").html("<%= j render "greeting_modal"%>");
-      $('#greetingModal').modal('show');
-    });
+      $(document).ready(function(){
+        $("#greeting-modal").html("<%= j render "greeting_modal"%>");
+        $('#greetingModal').modal('show');
+      });
     <% end %>
   </script>
-
-
-  <div id="greeting-modal">
-  </div>
+  <div id="greeting-modal"></div>
 </div>
 
 

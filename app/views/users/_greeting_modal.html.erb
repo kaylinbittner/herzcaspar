@@ -6,14 +6,13 @@
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
-      <h4 class="modal-title text-center">Welcome to HerzCaspar</h4>
+      <h4 class="modal-title text-center">👋 <%= current_user.first_name %>, welcome to HerzCaspar !</h4>
     </div>
     <div class="modal-body">
-     Hi,<br> my name is <strong>Fernanda</strong> and I will be responsible for you settling into HerzCaspar.<br><br>  If you have any questions along the way, please feel free to contact me at any time (you can find me in the chat). I will invite you to our next meetup in due course. Please make sure to attend.<br><br> Best Fernanda<br><br> PS. In the next step, we want to get to know you a little better
+     My name is <strong>Liz</strong> and I will help you settling in to HerzCaspar.<br><br>If you have any questions along the way, please feel free to contact me at any time (you can find me in the chat). I will invite you to our next meetup in due course. Please make sure to attend.<br><br>It is great to have you on board.<br><br> Best Liz<br><br> PS. In the next step, we want to get to know you a little better
    </div>
    <div class="modal-footer">
-    <%= link_to "Continue ...",new_user_interests_path, class:"next-button"  %>
- <!--    <button type="button" class="next-button"  id="continue">Continue...</button> -->
+    <%= link_to "Continue", new_user_interests_path, class:"next-button"  %>
   </div>
 </div>
 <!-- second modal - asking for interests -->
@@ -26,10 +25,10 @@
   </div>
   <div class="modal-body">
     Form goes here
- </div>
- <div class="modal-footer">
-  <button type="button" class="next-button" data-dismiss="modal">Continue discovering ...</button>
-</div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="next-button" data-dismiss="modal">Continue discovering ...</button>
+  </div>
 </div>
 </div>
 </div>
