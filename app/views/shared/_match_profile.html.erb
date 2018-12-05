@@ -12,9 +12,8 @@
           </div>
         <% end %>
         <h2><span class="profile-name"><%= user.first_name %> <%= user.last_name %></span></h2>
-        <p>Buddy since: <span class="match-profile-created_at"><%=  matches.created_at.strftime("%m/%d/%Y") %></span></p>
- <!--        <p><span class="profile-email"><%= user.email %></span></p>
-        <p><span class="profile-dob"><%= user.date_of_birth %></span></p> -->
+        <p><span class="profile-email"><%= user.email %></span></p>
+        <p>Buddy since: <span class="match-created_at"><%=  user.created_at.strftime("%m/%d/%Y") %></span></p>
         <a href="#" class="next-button">Get in touch</a>
       </div>
     </div>
