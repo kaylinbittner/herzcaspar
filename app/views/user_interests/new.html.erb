@@ -1,82 +1,70 @@
-<style>
-#movies{
-  display: none;
-}
-#sport{
-  display: none;
-}
-#books{
-  display: none;
-}
-.somethimg{
-  display: flex;
-}
-#new_user_interest{
-  display: none;
-}
-</style>
+<div class="interest-background" style="background-image: url( <%=image_path('https://res.cloudinary.com/dqssam2go/image/upload/v1543325720/landing.jpg')%>);">
+  <div class="interest-background-gradient">
+    <div style="padding-top: 15%;">
+      <div class="interest-container">
+        <% 3.times do %>
+        <div class="somethimg">
+        <select id="areas" class="areas">
+          <%= @area_array.each do |area| %>
+          <option value='<%= area %>'> <%= area %></option>
+          <% end %>
+        </select>
+        <select class="select" name="" id="sport">
+          <%= @sports.each do |sport| %>
+          <option value="<%= sport.id %>"><%= sport.variant %></option>
+          <% end %>
+        </select>
+          <select class="select" name="" id="books">
+          <%= @books.each do |book| %>
+          <option value="<%= book.id %>"><%= book.variant %></option>
+          <% end %>
+        </select>
+          <select class="select" name="" id="movies">
+          <%= @movies.each do |movie| %>
+          <option value="<%= movie.id %>"><%= movie.variant %></option>
+          <% end %>
+        </select>
+        </div>
+        <% end %>
 
-<div class="container" style="padding-top: 100px;">
-  <% 3.times do %>
-  <div class="somethimg">
-  <select id="areas" class="areas">
-    <%= @area_array.each do |area| %>
-    <option value='<%= area %>'> <%= area %></option>
-    <% end %>
-  </select>
-  <select class="select" name="" id="sport">
-    <%= @sports.each do |sport| %>
-    <option value="<%= sport.id %>"><%= sport.variant %></option>
-    <% end %>
-  </select>
-    <select class="select" name="" id="books">
-    <%= @books.each do |book| %>
-    <option value="<%= book.id %>"><%= book.variant %></option>
-    <% end %>
-  </select>
-    <select class="select" name="" id="movies">
-    <%= @movies.each do |movie| %>
-    <option value="<%= movie.id %>"><%= movie.variant %></option>
-    <% end %>
-  </select>
+        <div class="next-button" id="fake-btn">Continue discovering HerzCaspar</div>
+        <%= simple_form_for (@user_interest) do |u| %>
+        <%= u.input :transferer%>
+        <%= u.button :submit, id:'truesubmit' %>
+        <% end %>
+      </div>
+    </div>
+
+    <script>
+      let areasArray = document.querySelectorAll('.areas')
+      const trueValue = document.getElementById('user_interest_transferer')
+      const fakebtn = document.getElementById('fake-btn')
+
+      areasArray.forEach(function(area){
+      area.addEventListener('change',function(){
+
+        let ar = Array.from(area.parentNode.children)
+        ar.forEach(function(a){
+          a.style.display = 'none'
+        })
+        ar.forEach(function(a){
+          if(a.id == area.value){
+            a.style.display = 'block'
+          } else if(a.classList.contains('areas')){
+            a.style.display = 'block'
+          }
+        })
+      })
+      })
+      fakebtn.addEventListener('click',function(){
+        let selections = document.querySelectorAll('.select')
+        selections.forEach(function(selection){
+          if(selection.style.display == 'block'){
+            trueValue.value = trueValue.value + ',' + selection.value
+          }
+        })
+        document.getElementById('truesubmit').click()
+      });
+    </script>
   </div>
-  <% end %>
-
-  <div class="next-button" id="fake-btn">Continue discovering HerzCaspar</div>
-  <%= simple_form_for (@user_interest) do |u| %>
-  <%= u.input :transferer%>
-  <%= u.button :submit, id:'truesubmit' %>
-  <% end %>
 </div>
-
-<script>
-  let areasArray = document.querySelectorAll('.areas')
-  const trueValue = document.getElementById('user_interest_transferer')
-  const fakebtn = document.getElementById('fake-btn')
-
-  areasArray.forEach(function(area){
-  area.addEventListener('change',function(){
-
-    let ar = Array.from(area.parentNode.children)
-    ar.forEach(function(a){
-      a.style.display = 'none'
-    })
-    ar.forEach(function(a){
-      if(a.id == area.value){
-        a.style.display = 'block'
-      } else if(a.classList.contains('areas')){
-        a.style.display = 'block'
-      }
-    })
-  })
-  })
-  fakebtn.addEventListener('click',function(){
-    let selections = document.querySelectorAll('.select')
-    selections.forEach(function(selection){
-      if(selection.style.display == 'block'){
-        trueValue.value = trueValue.value + ',' + selection.value
-      }
-    })
-    document.getElementById('truesubmit').click()
-  });
-</script>
