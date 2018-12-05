@@ -48,10 +48,10 @@
         <% if current_user.role.present? %>
           <% if current_user.role == "buddy" %>
             <% if !Match.find_by(buddy_id: current_user.id).nil? %>
-              <%= render 'shared/profile', user: Match.find_by(buddy_id: current_user.id).patient %>
+              <%= render 'shared/match_profile', user: Match.find_by(buddy_id: current_user.id).patient %>
             <% end %>
           <% elsif !Match.find_by(patient_id: current_user.id).nil? %>
-            <%= render 'shared/profile', user: Match.find_by(patient_id: current_user.id).buddy %>
+            <%= render 'shared/match_profile', user: Match.find_by(patient_id: current_user.id).buddy %>
           <% end %>
         <% end %>
       </div>
