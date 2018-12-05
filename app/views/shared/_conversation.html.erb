@@ -37,14 +37,14 @@
               <% if !conversations_array == [] %>
                 <% if user.id != current_user.id && !conversations_array.include?(user.id)%>
                   <div class="item">
-                    <% user_full_name = user.first_name + " " + user.last_name %>
+                    <% user_full_name = "#{user.first_name} #{user.last_name}" %>
                     <%= link_to user_full_name, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', remote: true %>
                   </div>
                 <% end %>
               <% else %>
                 <% if user.id != current_user.id %>
                   <div class="item">
-                    <% user_full_name = user.first_name + " " + user.last_name %>
+                    <% user_full_name = "#{user.first_name} #{user.last_name}" %>
                     <%= link_to user_full_name, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', remote: true %>
                   </div>
                 <% end %>
