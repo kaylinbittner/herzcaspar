@@ -15,23 +15,13 @@ puts 'Destroying Messages'
 Message.destroy_all
 puts 'Destroying Conversations'
 Conversation.destroy_all
+puts 'Destroying User_interests'
+UserInterest.destroy_all
+puts 'Destroying Matches'
+Match.destroy_all
 puts 'Destroying Users'
 User.destroy_all
 puts 'Database clean'
-puts 'Creating users'
-user_list = [
-  ["Kaylin", "Bittner", "kaylin@bittner.de", "KaylinBittner", "KaylinBittner", "https://kitt.lewagon.com/placeholder/users/kaylinbittner"],
-  ["Elena", "Tamayo", "elena@tamayo.com", "ElenaTamayo", "ElenaTamayo", "https://kitt.lewagon.com/placeholder/users/elenatamayo"],
-  ["Fritz", "Meyer", "fritz@meyer.com", "FritzMeyer", "FritzMeyer", "https://kitt.lewagon.com/placeholder/users/meyerfr"]
-]
-
-user_list.each do |first_name, last_name, email, password, password_confirmation, url|
-  user = User.new(first_name: first_name, last_name: last_name, email: email, password: password, password_confirmation: password_confirmation)
-  user.remote_photo_url = url
-  user.save
-end
-
-puts 'Finished creating users'
 puts 'Creating interests'
 
 sport_photo_array = ["https://res.cloudinary.com/dqssam2go/image/upload/v1543912595/riley-mccullough-196374-unsplash_1.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543912867/alex-guillaume-1082212-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543913012/frame-harirak-602126-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543913169/joshua-peacock-144342-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543913364/max-winkler-380937-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543913587/karla-rivera-1083691-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543913738/joel-muniz-433073-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543914034/cricket-wicket.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543914273/fancy-crave-22481-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543914426/court-prather-792765-unsplash.jpg","https://res.cloudinary.com/dqssam2go/image/upload/v1543914569/eugene-lim-380281-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543914662/miguel-puig-477627-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543914875/jeffrey-lin-1144904-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543914982/jessica-wilson-539054-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543915115/kalen-emsley-94118-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543915294/quino-al-197082-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543915435/jarrett-fifield-507131-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543915653/re-ranger-performance-shooting-eyewear_1.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543915849/iStock-525023867-e1505208348820.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543916124/gulitti_act18_web.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543916259/8951-tabletennis512.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543916586/p0428bq9.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543916912/hiresc5177c2e82f36c30f4495ed809ef52f6_crop_north.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543917108/victor-freitas-667584-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543917495/W020180119671670553901.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543917629/chris-chow-772138-unsplash.jpg", "https://res.cloudinary.com/dqssam2go/image/upload/v1543917766/nicolas-tissot-435976-unsplash.jpg"]
@@ -56,21 +46,31 @@ interest_list.each do |key, value|
   end
 end
 
-puts 'For each user 3 interests'
-User.all.each do |user|
-  3.times do
-    user.interests << Interest.find(rand(0..Interest.all.length))
-  end
+puts 'Creating users'
+user_list = [
+  ["Kaylin", "Bittner", "kaylin@bittner.de", "KaylinBittner", "KaylinBittner", "https://kitt.lewagon.com/placeholder/users/kaylinbittner", "Berlin", "1990-05-21", "buddy", "I love listening, talking, discussing, debating, storytelling, deliberating, conversing and all the other varieties of thought exchange between people. I would love discussing with you about our favorite sports,films, books and much more. I am looking forward to meeting you!", 2, 15, 25],
+  ["Elena", "Tamayo", "elena@tamayo.com", "ElenaTamayo", "ElenaTamayo", "https://kitt.lewagon.com/placeholder/users/elenatamayo", "Berlin", "1995-04-18", "patient", "I love listening, talking, discussing, debating, storytelling, deliberating, conversing and all the other varieties of thought exchange between people. I would love discussing with you about our favorite sports,films, books and much more. I am looking forward to meeting you!", 5, 25, 35],
+  ["Fritz", "Meyer", "fritz@meyer.com", "FritzMeyer", "FritzMeyer", "https://kitt.lewagon.com/placeholder/users/meyerfr", "Berlin", "2000-02-04", "coordinator","I love listening, talking, discussing, debating, storytelling, deliberating, conversing and all the other varieties of thought exchange between people. I would love discussing with you about our favorite sports,films, books and much more. I am looking forward to meeting you!", 3, 22, 39]
+]
+
+user_list.each do |first_name, last_name, email, password, password_confirmation, url, city, date_of_birth, role, bio, interests_id1, interests_id2, interests_id3|
+  user = User.new(first_name: first_name, last_name: last_name, email: email, password: password, password_confirmation: password_confirmation, city: city, date_of_birth: date_of_birth, role: role, bio: bio)
+  user.remote_photo_url = url
+  user.interests << Interest.find(interests_id1)
+  user.interests << Interest.find(interests_id2)
+  user.interests << Interest.find(interests_id3)
+  user.save
 end
 
+puts 'Finished creating users'
 puts 'Creating events'
 
 event_list = [
-  ["Weekly Buddy - Meetup", "2018-11-18 18:00:00", "2018-11-18 22:00:00", "Invitation for our weekly meetup. I want to catch up on you last visits", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["Weekly Buddy - Meetup", "2018-11-25 18:00:00", "2018-11-25 22:00:00", "Invitation for our weekly meetup. I want to catch up on you last visits", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["Weekly Buddy - Meetup", "2018-12-03 18:00:00", "2018-12-03 22:00:00", "Invitation for our weekly meetup. I want to catch up on you last visits. This will be the last time we will meet before X-Mas", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["All hands meeting", "2018-11-29 18:00:00", "2018-11-29 19:30:00", "We want to bring everyone in to talk about what we managed to achieve over the past weeks", "Neuer Kamp 30, 20357 Hamburg","1"],
-  ["Caspar Christmas", "2018-12-01 18:00:00", "2018-11-25 24:00:00", "Everyone is invited to meet for a stroll over the Hamburg Christmas market", "Weihnachtsmarkt auf dem Rathausmarkt, Hamburg","1"]
+  ["Weekly Buddy - Meetup", "2018-12-07 18:00:00", "2018-11-18 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. Looking forward to meet you.", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["Weekly Buddy - Meetup", "2018-12-14 18:00:00", "2018-11-25 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. I hope you can come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["Weekly Buddy - Meetup", "2018-12-21 18:00:00", "2018-12-03 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. This will be the last time we will meet before X-Mas", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["All hands meeting", "2018-12-22 18:00:00", "2018-11-29 19:30:00", "Hello guys I would like to invite you to our buddy closing event for this year. We want to bring everyone in to talk about what we managed to achieve over the past weeks. See you guys there!", "Neuer Kamp 30, 20357 Hamburg","1"],
+  ["Caspar Christmas", "2018-12-23 18:00:00", "2018-11-25 24:00:00", "Hello guys, I am exited to invite you to meet for a stroll over the Hamburg Christmas market. Looking forward to see you all there.", "Weihnachtsmarkt auf dem Rathausmarkt, Hamburg","1"]
 ]
 
 event_list.each do |title, start, e, description, location, coordinator|
