@@ -1,11 +1,12 @@
 .card, .main, .description, .fill-in-interests-form{
   background: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  // padding: 50px;
+  padding: 50px;
   margin: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  border-radius: 20px;
 }
 
 /* TODO: design a CSS grid layout for user dashboard */
@@ -59,7 +60,7 @@
 .description h3 {
   color: rgba(0,0,0,0.9);
   font-size: 21px;
-  margin-left: 10px;
+  // margin-left: 10px;
   font-weight: bolder;
 }
 
@@ -95,8 +96,8 @@
 .description {
   grid-row: 2 / span 1;
   grid-column: 2 / span 3;
-  padding: 10px;
-  text-align: left;
+  // padding: 10px;
+  // text-align: left;
 }
 
 .card-container {
