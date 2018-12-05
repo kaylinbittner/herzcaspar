@@ -18,14 +18,14 @@
   padding: 30px;
 }
 .profile-name {
-  color: black;
+  color: $dark-gray;
   font-weight: bolder;
 }
 .profile-email {
-  color: black;
+  color: $dark-gray;
 }
 .profile-dob {
-  color: black;
+  color: $dark-gray;
 }
 .profile h2 {
   font-size: 22px;
@@ -34,7 +34,7 @@
 .profile h3 {
   font-size: 22px;
   margin-bottom: 15px;
-  color: black;
+  color: $dark-gray;
 }
 
 
@@ -58,7 +58,7 @@
 }
 
 .description h3 {
-  color: rgba(0,0,0,0.9);
+  color: $dark-gray;
   font-size: 21px;
   // margin-left: 10px;
   font-weight: bolder;
