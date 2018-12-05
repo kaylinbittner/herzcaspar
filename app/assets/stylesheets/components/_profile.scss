@@ -1,11 +1,12 @@
 .card, .main, .description, .fill-in-interests-form{
   background: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  // padding: 50px;
+  padding: 50px;
   margin: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  border-radius: 20px;
 }
 
 /* TODO: design a CSS grid layout for user dashboard */
@@ -13,21 +14,17 @@
   display: grid;
   grid-template-columns: 350px 1fr 1fr 1fr;
   grid-template-rows: 50% 50%;
-  min-height: 60vh;
   padding: 30px;
+  height: 62vh;
 }
-.profile-name {
+
+.profile-info {
   color: black;
-  font-weight: bolder;
-}
-.profile-email {
-  color: black;
-}
-.profile-dob {
-  color: black;
-}
-.profile h2 {
-  font-size: 22px;
+  font-size: 20px;
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
 }
 
 .profile h3 {
@@ -35,7 +32,6 @@
   margin-bottom: 15px;
   color: black;
 }
-
 
 .card-shadow {
   background-image: linear-gradient(50deg, transparent 0%, rgba(0, 0, 0, 0.8) 60%);
@@ -59,7 +55,7 @@
 .description h3 {
   color: rgba(0,0,0,0.9);
   font-size: 21px;
-  margin-left: 10px;
+  // margin-left: 10px;
   font-weight: bolder;
 }
 
@@ -95,8 +91,8 @@
 .description {
   grid-row: 2 / span 1;
   grid-column: 2 / span 3;
-  padding: 10px;
-  text-align: left;
+  // padding: 10px;
+  // text-align: left;
 }
 
 .card-container {

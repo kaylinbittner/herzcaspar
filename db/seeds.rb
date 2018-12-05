@@ -66,11 +66,11 @@ puts 'Finished creating users'
 puts 'Creating events'
 
 event_list = [
-  ["Weekly Buddy - Meetup", "2018-12-07 18:00:00", "2018-11-18 22:00:00", "Invitation for our weekly meetup. I want to catch up on you last visits", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["Weekly Buddy - Meetup", "2018-12-14 18:00:00", "2018-11-25 22:00:00", "Invitation for our weekly meetup. I want to catch up on you last visits", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["Weekly Buddy - Meetup", "2018-12-21 18:00:00", "2018-12-03 22:00:00", "Invitation for our weekly meetup. I want to catch up on you last visits. This will be the last time we will meet before X-Mas", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["All hands meeting", "2018-12-22 18:00:00", "2018-11-29 19:30:00", "We want to bring everyone in to talk about what we managed to achieve over the past weeks", "Neuer Kamp 30, 20357 Hamburg","1"],
-  ["Caspar Christmas", "2018-12-23 18:00:00", "2018-11-25 24:00:00", "Everyone is invited to meet for a stroll over the Hamburg Christmas market", "Weihnachtsmarkt auf dem Rathausmarkt, Hamburg","1"]
+  ["Weekly Buddy - Meetup", "2018-12-07 18:00:00", "2018-11-18 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. Looking forward to meet you.", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["Weekly Buddy - Meetup", "2018-12-14 18:00:00", "2018-11-25 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. I hope you can come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["Weekly Buddy - Meetup", "2018-12-21 18:00:00", "2018-12-03 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. This will be the last time we will meet before X-Mas", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["All hands meeting", "2018-12-22 18:00:00", "2018-11-29 19:30:00", "Hello guys I would like to invite you to our buddy closing event for this year. We want to bring everyone in to talk about what we managed to achieve over the past weeks. See you guys there!", "Neuer Kamp 30, 20357 Hamburg","1"],
+  ["Caspar Christmas", "2018-12-23 18:00:00", "2018-11-25 24:00:00", "Hello guys, I am exited to invite you to meet for a stroll over the Hamburg Christmas market. Looking forward to see you all there.", "Weihnachtsmarkt auf dem Rathausmarkt, Hamburg","1"]
 ]
 
 event_list.each do |title, start, e, description, location, coordinator|

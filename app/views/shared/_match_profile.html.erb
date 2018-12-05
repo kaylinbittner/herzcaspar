@@ -11,12 +11,22 @@
             </h1>
           </div>
         <% end %>
-        <h2><span class="profile-name"><%= user.first_name %> <%= user.last_name %></span></h2>
-        <p><span class="profile-email"><%= user.email %></span></p>
-        <p><span class="profile-dob"><%= user.date_of_birth %></span></p>
+        <h2 class="profile-info"><%= user.first_name %> <%= user.last_name %></h2>
+        <p class="profile-info"><%= user.email %></p>
+        <p class="profile-info"><%= user.date_of_birth %></p>
+        <p class="profile-info">Buddy since: <%=  user.created_at.strftime("%m/%d/%Y") %></p>
         <a href="#" class="next-button">Get in touch</a>
       </div>
     </div>
+    <% user.interests.each do |interest| %>
+      <div class="card" style="background-image: linear-gradient(174deg, transparent 0%, rgba(0, 0, 0, 0.43) 60%), url(<%=image_path(interest.photo)%>); background-size: cover;  opacity: 0.85;">
+
+        <div class="card-content">
+          <h3><b><font color="white"><%= interest.area %></font></b></h3>
+          <p><font color="white"><%= interest.variant %></font></p>
+        </div>
+      </div>
+    <% end %>
     <div class="description">
       <div class="description-content">
         <h3>More about <%= user.first_name %> <%= user.last_name %></h3>

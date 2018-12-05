@@ -12,34 +12,24 @@
         </div>
         <% end %>
         <h2><span class="profile-name"><%= user.first_name %> <%= user.last_name %></span></h2>
-        <!--  <p><span class="profile-email"><%= user.email %></span></p> -->
-        <!-- <p><span class="profile-dob"><%= user.date_of_birth %></span></p> -->
+        <p>Member of the Caspar comunity since: <span class="profile-created_at"><%=  user.created_at.strftime("%m/%d/%Y") %></span></p>
         <%= link_to 'Update', edit_user_path(current_user.id), remote: true, class: "next-button"%>
-        <!--        <a href="#" class="next-button">Get in touch</a> -->
       </div>
     </div>
-    <% if user.interests == [] %>
-    <div class="fill-in-interests-form">
-      <div class="fill-in-interests-form-content">
-        <%#= render 'user_interests/new' %>
-      </div>
-    </div>
-    <% else %>
     <% user.interests.each do |interest| %>
-    <div class="card" style="background-image: linear-gradient(174deg, transparent 0%, rgba(0, 0, 0, 0.43) 60%), url(<%=image_path(interest.photo)%>); background-size: cover;  opacity: 0.85;">
+      <div class="card" style="background-image: linear-gradient(174deg, transparent 0%, rgba(0, 0, 0, 0.43) 60%), url(<%=image_path(interest.photo)%>); background-size: cover;  opacity: 0.85;">
 
         <div class="card-content">
           <h3><b><font color="white"><%= interest.area %></font></b></h3>
           <p><font color="white"><%= interest.variant %></font></p>
         </div>
-
-    </div>
-    <%end %>
-    <% end %>
+      </div>
+     <% end %>
+    
 
     <div class="description">
       <div class="description-content">
-        <h3>More about <%= user.first_name %> <%= user.last_name %></h3>
+        <h3>More about yourself <%#= user.first_name %> <%#= user.last_name %></h3>
         <p class="text-justify">
           <%= user.bio %>
         </p>

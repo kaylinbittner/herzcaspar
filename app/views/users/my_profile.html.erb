@@ -76,6 +76,9 @@
 
     </div>
   </div>
+  <div id="chat" class="chat-closed">
+    <%= render  'shared/conversation', conversations: @conversations, users: @users %>
+  </div>
   <script type="text/javascript">
     $(document).ready(function(){
       $('#got-mate').bind('click', function() {
