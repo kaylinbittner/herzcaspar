@@ -1,5 +1,16 @@
-<div class="message <%= user_is_messages_author ? "right" : "" %>">
-  <%#= image_tag message.user.avatar_url, class: "avatar" %>
-  <div class="message-content"><%= message.body %></div>
+<div class="messagecontainer">
+  <% if user_is_messages_author %>
+    <div class="message messfirst">
+      <div class="my-avatar" style="background-image: url(<%= message.user.photo %>)">
+      </div>
+      <p class="message-body my-message"><%= message.body %></p>
+    </div>
+    <p class="my-time"><%= message.message_time %></p>
+  <% else %>
+    <div class="message messsecond">
+      <div class="not-my-avatar" style="background-image: url(<%= message.user.photo %>)"></div>
+      <p class="message-body"><%= message.body %></p>
+    </div>
+    <p class="message-time"><%= message.message_time %></p>
+  <% end %>
 </div>
-
