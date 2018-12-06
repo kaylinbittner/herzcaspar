@@ -1,11 +1,12 @@
 function getToOneConversation(innerHTML) {
   const oneConversation = document.getElementById('chat');
   oneConversation.innerHTML = innerHTML;
+  a = document.querySelector('.chat-messages')
+  a.scrollTop = a.scrollHeight;
+  setUpQuit();
 }
 
 function setUpQuit(){
-  a = document.querySelector('.chat-messages')
-  a.scrollTop = a.scrollHeight;
   var chatQuit = document.querySelector('.quit-chat');
   var chatWindow = document.querySelector('.chat-window');
   var testId = document.getElementById('test');
@@ -27,4 +28,3 @@ function setUpQuit(){
 
 
 getToOneConversation("<%= j render 'shared/messages', conversation: @conversation, messages: @messages, over_ten: @over_ten, message: @message %>");
-setUpQuit();
