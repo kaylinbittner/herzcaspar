@@ -10,7 +10,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = Conversation.find(conversation_params[:id])
+    @conversation = Conversation.includes(messages: :user).find(params[:id])
     @messages = @conversation.messages
     if @messages.length > 10
       @over_ten = true
