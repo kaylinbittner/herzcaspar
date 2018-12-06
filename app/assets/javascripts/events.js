@@ -24,6 +24,7 @@ $(document).ready(function() {
 
         eventClick:  function(calEvent) {
           var id = calEvent.id
+          // console.log(id);
           var attend = (event) => {
             fetch(`http://localhost:3000/user_events/${id}`, {
               method: "PATCH",
@@ -50,9 +51,13 @@ $(document).ready(function() {
           $('#modalBody').html(calEvent.description +' @ '+ calEvent.location);
           $('#fullCalModal').modal();
           $('.dismiss-btn').bind('click', function() {
+            console.log(id);
+            console.log("dismiss");
             dismiss();
           });
           $('.attend-btn').bind('click', function() {
+            console.log(id);
+            console.log("attend");
             attend();
           });
         }
