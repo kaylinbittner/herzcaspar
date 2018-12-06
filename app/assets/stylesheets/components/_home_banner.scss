@@ -14,6 +14,7 @@
     /* opacity: 0.9; */
     height: 100vh;
     filter: alpha(opacity=5);
+    background-position: 100% 90%;
 }
 
 .home-main-header {
@@ -34,9 +35,13 @@
   color: #9F1938;
 }
 .home-container {
+   margin: 0% 30%;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 40px 70px;
+  border-radius: 5px;
+  min-width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-align: center;
-  justify: center;
-  padding-top: 40vh;
 }
 
 .no-button {
