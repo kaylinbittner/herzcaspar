@@ -3,7 +3,7 @@
     <div class="main">
       <div class="main-content">
         <% if user.photo.present? %>
-          <%= image_tag user.photo.url(:bright_face), class: "avatar" %>
+          <%= image_tag user.photo.url(:bright_face), class: "profile-avatar-large" %>
         <% else %>
         <div class="avatar-placeholder-navbar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
           <h1>
@@ -20,8 +20,8 @@
       <div class="card" style="background-image: linear-gradient(174deg, transparent 0%, rgba(0, 0, 0, 0.43) 60%), url(<%=image_path(interest.photo)%>); background-size: cover;  opacity: 0.85;">
 
         <div class="card-content">
-          <h3><b><font color="white"><%= interest.area %></font></b></h3>
-          <p><font color="white"><%= interest.variant %></font></p>
+          <h3><font color="white"><%= interest.variant %></font></h3>
+          <p><font color="white"><%= interest.area %></font><</p>
         </div>
       </div>
      <% end %>
