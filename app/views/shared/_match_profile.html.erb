@@ -12,10 +12,10 @@
           </div>
         <% end %>
         <h2 class="profile-info"><%= user.first_name %> <%= user.last_name %></h2>
-        <p class="profile-info"><%= user.email %></p>
-        <p class="profile-info"><%= user.date_of_birth %></p>
-        <p class="profile-info">Buddy since: <%=  user.created_at.strftime("%m/%d/%Y") %></p>
-        <a href="#" class="next-button">Get in touch</a>
+        <p class="profile-info"><i class="fas fa-envelope"></i> <%= user.email %></p>
+        <p class="profile-info"><i class="fas fa-birthday-cake"></i> <%= user.date_of_birth.strftime("%m/%d/%Y") %></p>
+        <p class="profile-info"><i class="fas fa-user-friends"></i> since <%=user.created_at.strftime("%m/%d/%Y") %></p>
+        <a href="mailto:<%= user.email%>?subject=Greeting from your HerzCaspar buddy <%=current_user.first_name%>" class="next-button">Get in touch</a>
       </div>
     </div>
     <% user.interests.each do |interest| %>

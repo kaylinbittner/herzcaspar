@@ -25,7 +25,9 @@ a {
   .tab-content{
     background-color: rgba(255,255,255,0.5);
     padding: 5px;
-    min-height: 76vh;
+    height: calc(80vh - 62px);
+    overflow: scroll;
+
   }
 
   #home {
@@ -88,4 +90,3 @@ a {
     z-index: 1;
     background-color: $red;
   }
-
