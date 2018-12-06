@@ -136,23 +136,15 @@ puts 'Finished creating users'
 puts 'Creating events'
 
 event_list = [
-  ["Weekly Buddy - Meetup", "23-11-2018 18:00:00", "23-11-2018  20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits.I hope you can come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["Weekly Buddy - Meetup", "30-11-2018 18:00:00", "30-11-2018 20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits." "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["Weekly Buddy - Meetup", "07-12-2018 18:00:00", "07-12-2018 20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. Looking forward to meet you.", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["Cinema Meetup", "08-12-2018 18:00:00","08-12-2018 21:00:00", "Hello guys I would like to invite you to watch the film Dieses bescheuerte Herz  all together and meet new people. I hope you can all come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["Caspar Christmas", "09-12-2018 15:00:00", "09-12-2018 18:00:00", "Hello guys, I am exited to invite you for a stroll over the Hamburg Christmas market. Looking forward to see you all there.", "Weihnachtsmarkt auf dem Rathausmarkt, Hamburg","1"],
-  ["Weekly Buddy - Meetup", "14-12-2018 18:00:00", "14-12-2018 20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. I hope you can come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["All hands meeting", "16-12-2018 18:00:00", "16-12-2018 20:30:00", "Hello guys I would like to invite you to our buddy closing event for this year. We want to bring everyone in to talk about what we managed to achieve over the past weeks. See you guys there!", "Neuer Kamp 30, 20357 Hamburg","1"]
-  # ["Weekly Buddy - Meetup", "2018-12-14 18:00:00", "2018-11-25 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. I hope you can come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  # ["Weekly Buddy - Meetup", "2018-12-21 18:00:00", "2018-12-03 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. This will be the last time we will meet before X-Mas", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["Weekly Buddy - Meetup", "23-11-2018 18:00:00", "23-11-2018  20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits.I hope you can come", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["Weekly Buddy - Meetup", "30-11-2018 18:00:00", "30-11-2018 20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits" "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["Weekly Buddy - Meetup", "07-12-2018 18:00:00", "07-12-2018 20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. Looking forward to meet you", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["Cinema Meetup", "08-12-2018 18:00:00","08-12-2018 21:00:00", "Hello guys, I would like to invite you to watch the film Dieses bescheuerte Herz  all together and meet new people. I hope you can all come", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["Caspar Christmas Market Stroll", "09-12-2018 15:00:00", "09-12-2018 18:00:00", "Hello guys, I am exited to invite you for a stroll over the Hamburg Christmas market. Looking forward to see you all there", "Weihnachtsmarkt auf dem Rathausmarkt, Hamburg","1"],
+  ["Weekly Buddy - Meetup", "14-12-2018 18:00:00", "14-12-2018 20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. I hope you can come", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["All hands meeting", "04-12-2018 18:00:00", "04-12-2018 20:30:00", "Hello guys I would like to invite you to our buddy closing event for this year. We want to bring everyone in to talk about what we managed to achieve over the past weeks. See you guys there!", "Neuer Kamp 30, 20357 Hamburg","1"]
 ]
 
-# event_list.each do |key, value|
-#   value.each do |type|
-#     Event.create!(title: title, start: start, end: e, description: description, location: location)
-#   end
-#   event.save
-# end
 
 event_list.each do |mini_array|
   event = Event.new(title: mini_array[0], start: mini_array[1], end: mini_array[2], description: mini_array[3], location: mini_array[4], coordinator: User.find_by(role: 'coordinator' ))

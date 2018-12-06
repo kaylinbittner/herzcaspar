@@ -9,12 +9,13 @@
     color: #7a7a7a;
 }
 
-
-
 .modal-footer {
   padding: 0;
   border-top: none;
   .next-button {
-  width: 100%;
+  width: 50%;
+  }
+  .btn-f {
+  width: 50%;
   }
 }

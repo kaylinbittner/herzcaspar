@@ -3,17 +3,11 @@
   <div class="dashboard-message-body">
     <p><strong>Sign Up to HerzCaspar</strong></p>
   </div>
-  <div class="dashboard-message-status">
-    <input type="checkbox" name="dash-one" value="dash-one" checked>
-  </div>
 </div>
 <div class="dashboard-message <%= 'completed' if @user_got_interests == true %>">
   <%= image_tag "https://res.cloudinary.com/dsolsmeep/image/upload/v1544040183/register-icon.png", alt: "alttext", class: "dashboard-avatar-large" %>
   <div class="dashboard-message-body">
     <p><strong>Tell Us More About You</strong></p>
-  </div>
-  <div class="dashboard-message-status">
-    <input type="checkbox" name="dash-two" value="dash-two">
   </div>
 </div>
 <div class="dashboard-message <%= 'completed' if @user_attend_event == true %>">
@@ -21,25 +15,16 @@
   <div class="dashboard-message-body">
     <p><strong>Attend Your First Event</strong></p>
   </div>
-  <div class="dashboard-message-status">
-    <input type="checkbox" name="dash-three" value="dash-three">
-  </div>
 </div>
 <div class="dashboard-message <%= 'completed' if @user_has_mate == true %>">
   <%= image_tag "https://res.cloudinary.com/dsolsmeep/image/upload/v1544040235/hug.png", alt: "alttext", class: "dashboard-avatar-large" %>
   <div class="dashboard-message-body">
     <p><strong>Find a Mate</strong></p>
   </div>
-  <div class="dashboard-message-status">
-    <input type="checkbox" name="dash-four" value="dash-four">
-  </div>
 </div>
 <div class="dashboard-message">
   <%= image_tag "https://res.cloudinary.com/dsolsmeep/image/upload/v1544040188/icon_contract_service.png", alt: "alttext", class: "dashboard-avatar-large" %>
   <div class="dashboard-message-body">
     <p><strong>Meet Your Mate</strong></p>
-  </div>
-  <div class="dashboard-message-status">
-    <input type="checkbox" name="dash-five" value="dash-five">
   </div>
 </div>

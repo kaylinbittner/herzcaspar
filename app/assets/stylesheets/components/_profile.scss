@@ -1,12 +1,12 @@
 .card, .main, .description, .fill-in-interests-form{
   background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   padding: 50px;
   margin: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-radius: 10px;
+  border-radius: 3px;
+  border: 1px solid #dddddd;
 }
 
 /* TODO: design a CSS grid layout for user dashboard */
