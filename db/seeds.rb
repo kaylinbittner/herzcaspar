@@ -50,7 +50,8 @@ puts 'Creating users'
 user_list = [
   ["Kaylin", "Bittner", "kaylin@bittner.de", "KaylinBittner", "KaylinBittner", "https://kitt.lewagon.com/placeholder/users/kaylinbittner", "Berlin", "1990-05-21", "buddy", "I love listening, talking, discussing, debating, storytelling, deliberating, conversing and all the other varieties of thought exchange between people. I would love discussing with you about our favorite sports,films, books and much more. I am looking forward to meeting you!", 2, 15, 25],
   ["Elena", "Tamayo", "elena@tamayo.com", "ElenaTamayo", "ElenaTamayo", "https://kitt.lewagon.com/placeholder/users/elenatamayo", "Berlin", "1995-04-18", "patient", "I love listening, talking, discussing, debating, storytelling, deliberating, conversing and all the other varieties of thought exchange between people. I would love discussing with you about our favorite sports,films, books and much more. I am looking forward to meeting you!", 5, 25, 35],
-  ["Fritz", "Meyer", "fritz@meyer.com", "FritzMeyer", "FritzMeyer", "https://kitt.lewagon.com/placeholder/users/meyerfr", "Berlin", "2000-02-04", "coordinator","I love listening, talking, discussing, debating, storytelling, deliberating, conversing and all the other varieties of thought exchange between people. I would love discussing with you about our favorite sports,films, books and much more. I am looking forward to meeting you!", 3, 22, 39]
+  ["Fritz", "Meyer", "fritz@meyer.com", "FritzMeyer", "FritzMeyer", "https://kitt.lewagon.com/placeholder/users/meyerfr", "Berlin", "2000-02-04", "coordinator","I love listening, talking, discussing, debating, storytelling, deliberating, conversing and all the other varieties of thought exchange between people. I would love discussing with you about our favorite sports,films, books and much more. I am looking forward to meeting you!", 3, 22, 39],
+  ["Trond", "Stern", "trond@stern.com", "TrondStern","TrondStern","https://kitt.lewagon.com/placeholder/users/TheTresckow", "Berlin", "31-08-1992", "buddy", "I love listening, talking, discussing, debating, storytelling, deliberating, conversing and all the other varieties of thought exchange between people. I would love discussing with you about our favorite sports,films, books and much more. I am looking forward to meeting you!", 2, 15, 25 ]
 ]
 
 user_list.each do |first_name, last_name, email, password, password_confirmation, url, city, date_of_birth, role, bio, interests_id1, interests_id2, interests_id3|
@@ -60,21 +61,43 @@ user_list.each do |first_name, last_name, email, password, password_confirmation
   user.interests << Interest.find(interests_id2)
   user.interests << Interest.find(interests_id3)
   user.save
+
 end
+
+
+
 
 puts 'Finished creating users'
 puts 'Creating events'
 
 event_list = [
-  ["Weekly Buddy - Meetup", "2018-12-07 18:00:00", "2018-11-18 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. Looking forward to meet you.", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["Weekly Buddy - Meetup", "2018-12-14 18:00:00", "2018-11-25 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. I hope you can come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["Weekly Buddy - Meetup", "2018-12-21 18:00:00", "2018-12-03 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. This will be the last time we will meet before X-Mas", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["All hands meeting", "2018-12-22 18:00:00", "2018-11-29 19:30:00", "Hello guys I would like to invite you to our buddy closing event for this year. We want to bring everyone in to talk about what we managed to achieve over the past weeks. See you guys there!", "Neuer Kamp 30, 20357 Hamburg","1"],
-  ["Caspar Christmas", "2018-12-23 18:00:00", "2018-11-25 24:00:00", "Hello guys, I am exited to invite you to meet for a stroll over the Hamburg Christmas market. Looking forward to see you all there.", "Weihnachtsmarkt auf dem Rathausmarkt, Hamburg","1"]
+  ["Weekly Buddy - Meetup", "23-11-2018 18:00:00", "23-11-2018  20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits.I hope you can come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["Weekly Buddy - Meetup", "30-11-2018 18:00:00", "30-11-2018 20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits." "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["Weekly Buddy - Meetup", "07-12-2018 18:00:00", "07-12-2018 20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. Looking forward to meet you.", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["Cinema meetup", "08-12-2018 18:00:00","08-12-2018 18:00:00", "Hello guys I would like to invite you to watch the film Dieses bescheuerte Herz  all together and meet new people. I hope you can all come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["Caspar Christmas", "09-12-2018 15:00:00", "09-12-2018 18:00:00", "Hello guys, I am exited to invite you for a stroll over the Hamburg Christmas market and meet new people. Looking forward to see you all there.", "Weihnachtsmarkt auf dem Rathausmarkt, Hamburg","1"],
+  ["Weekly Buddy - Meetup", "14-12-2018 18:00:00", "14-12-2018 20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. I hope you can come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["All hands meeting", "16-12-2018 18:00:00", "16-12-2018 20:30:00", "Hello guys I would like to invite you to our buddy closing event for this year. We want to bring everyone in to talk about what we managed to achieve over the past weeks. See you guys there!", "Neuer Kamp 30, 20357 Hamburg","1"],
+  # ["Weekly Buddy - Meetup", "2018-12-14 18:00:00", "2018-11-25 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. I hope you can come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  # ["Weekly Buddy - Meetup", "2018-12-21 18:00:00", "2018-12-03 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. This will be the last time we will meet before X-Mas", "Forsmannstrasse 7, 20095 Hamburg","1"],
+
 ]
 
-event_list.each do |title, start, e, description, location, coordinator|
-  event = Event.new(title: title, start: start, end: e, description: description, location: location, coordinator_id: coordinator)
-  event.save
+# event_list.each do |key, value|
+#   value.each do |type|
+#     Event.create!(title: title, start: start, end: e, description: description, location: location)
+#   end
+#   event.save
+# end
+
+event_list.each do |mini_array|
+  event = Event.new(title: mini_array[0], start: mini_array[1], end: mini_array[2], description: mini_array[3], location: mini_array[4], coordinator: User.find_by(role: 'coordinator' ))
+  event.save!
 end
 puts 'Finished creating events'
+
+x = User.last
+events = Event.all
+events.each do |event|
+  UserEvent.create!(user: x, event: event)
+end
