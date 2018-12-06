@@ -1,32 +1,13 @@
-function appendNewMessage() {
-  const newMessage = "<div class='messagecontainer'><div class='messfirst'><div class='not-my-avatar' style='background-image: url(<%= current_user.photo %>)'></div><p class='message-body my-message'><%= @message.body %></p></div><p class='my-time'><%= @message.message_time %></p></div>";
-  const messages = document.getElementById('messages');
-  messages.insertAdjacentHTML('beforeend', newMessage);
-  const inputBox = document.getElementById('message_body');
-  inputBox.value = "";
-  a = document.querySelector('.chat-messages')
-  a.scrollTop = a.scrollHeight;
-  setUpQuit();
-}
 
-function setUpQuit(){
-  var chatQuit = document.querySelector('.quit-chat');
-  var chatWindow = document.querySelector('.chat-window');
-  var testId = document.getElementById('test');
-  var element = document.querySelector('.chat-messages');
-  element.scrollTop = element.scrollHeight;
-  chatQuit.addEventListener('click', function(){
-
-    if (testId.classList.contains("test-id-closed")) {
-      chatQuit.innerHTML = "x"
-    }
-    else {
-      chatQuit.innerHTML = "chat"
-    }
-    testId.classList.toggle("test-id-closed");
-    chatWindow.classList.toggle("chat-window-closed");
-    // testId.innerHTML = "";
-  })
-}
-
-appendNewMessage();
+<% if @message.errors.any? %>
+  // handle validation errors later
+<% else %>
+  messagesContainer = document.querySelector('#messages');
+  messagesContainer.insertAdjacentHTML('beforeend', '<%= j render "message", message: @message, user_is_messages_author: true %>');
+  console.log(messagesContainer)
+  input = document.querySelector('.input-message');
+  console.log(input)
+  input.value = '';
+  input.blur();
+  scrollLastMessageIntoView();
+<% end %>
