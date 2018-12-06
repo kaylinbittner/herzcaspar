@@ -13,8 +13,8 @@
         <% end %>
         <h2 class="profile-info"><%= user.first_name %> <%= user.last_name %></h2>
         <p class="profile-info"><%= user.email %></p>
-        <p class="profile-info"><%= user.date_of_birth %></p>
-        <p class="profile-info">Buddy since: <%=  user.created_at.strftime("%m/%d/%Y") %></p>
+        <p class="profile-info">Date of birth:<%= user.date_of_birth.strftime("%d-%m-%y") %></p>
+        <p class="profile-info">Buddy since: <%=  user.created_at.strftime("%d-%m-%y") %></p>
         <a href="#" class="next-button">Get in touch</a>
       </div>
     </div>
