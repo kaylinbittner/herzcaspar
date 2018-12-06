@@ -10,8 +10,6 @@
       </div>
     </div>
     <h1 class="join-main-header"><strong class="home-header">Join</strong><br> the team</h1>
-    <!-- <div class="row">
-      <div class="col-xs-8"> -->
        <div class="registration-form" >
         <%= simple_form_for(current_user, url: profile_path) do |f| %>
         <%= f.input :first_name, require: true, placeholder: "First Name", label: false%>
@@ -29,8 +27,6 @@
         <%= f.button :submit, value= "FINISH", class: "next-button" %>
         <% end %>
       </div>
-       <!--  </div>
-       </div> -->
      </div>
    </div>
  </div>
