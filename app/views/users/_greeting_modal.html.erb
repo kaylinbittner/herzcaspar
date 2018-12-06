@@ -5,10 +5,10 @@
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
-      <h4 class="modal-title text-center">👋<%= current_user.first_name %>, welcome to HerzCaspar !</h4>
+      <h4 class="modal-title text-center">👋 <%= current_user.first_name %>, welcome to HerzCaspar !</h4>
     </div>
     <div class="modal-body">
-     My name is <strong>Liz</strong> and I will help you settling in to HerzCaspar.<br><br><br>It is great to have you on board.<br><br> Best Liz<br><br> PS. In the next step, we want to get to know you a little better
+      My name is <strong>Liz</strong> and I will help you settling in to HerzCaspar.<br>It is great to have you on board.<br><br> Best Liz<br>
    </div>
    <div class="modal-footer">
     <%= link_to "Continue", new_user_interests_path, class:"next-button"  %>
