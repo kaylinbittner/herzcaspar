@@ -14,6 +14,14 @@ a {
   color: white;
 }
 
+.dashboard-message.completed {
+    color: #ffffff;
+    background-color: #508db0;
+    strong {
+          color: white;
+    }
+}
+
 
    .nav-tabs, .nav-pills {
     text-align:center;
@@ -24,28 +32,42 @@ a {
   }
   .tab-content{
     background-color: rgba(255,255,255,0.5);
-    height: calc(100vh - 70px - 55px);
+    padding: 5px;
+    height: 90vh;
     overflow: scroll;
+  }
+
+  .title-profile {
+    margin-bottom: 42px;
+    font-weight: 200;
+    font-size: 37px !important;
+    text-align: center;
+    color: grey;
   }
 
   #home {
     &.active {
 
-    display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    padding: 51px 30px;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px 89px;
     align-content: space-between;
     height: 510px;
     }
   }
 
 
-
+.nav-tabs {
+    border-bottom: none;
+    padding: 20px 0;
+}
 
   .nav-tabs > li > a{
     border: 1px solid #ddd;
-    border-bottom: none;
+    border-radius: 5px;
+
 
   }
   .nav-tabs > li > a:hover{
@@ -54,12 +76,14 @@ a {
     // font-weight: bold;
     cursor: pointer !important;
      border: 1px solid #ddd;
-    border-bottom: none;
+
   }
 
   .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-    color: #942438;
-    background-color: rgba(255, 255, 255, 0.5);
+    color: #508db0;
+    border: solid 3px #508db0;
+    background-color: rgb(255, 255, 255);
+    font-size: 16px;
     font-weight: bold;
   }
 
@@ -69,6 +93,7 @@ a {
     margin-right: 0px !important;
     color: rgba(0,0,0,0.6);
     background-color: rgba(255, 255, 255, 0.5);
+
   }
 
   .positive {
@@ -88,3 +113,7 @@ a {
     z-index: 1;
     background-color: $red;
   }
+
+  a .nav-link.active {
+      border-radius: 5px;
+}

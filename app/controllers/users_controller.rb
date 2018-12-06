@@ -11,6 +11,24 @@ class UsersController < ApplicationController
       @data << { id: user_event.id, title: user_event.event.title, start: user_event.event.start, end: user_event.event.end, description: user_event.event.description, location: user_event.event.location, color: user_event.attendance_color }
     end
     @match = Match.find_by(buddy_id: current_user.id)
+    @user_got_interests = user_got_interests?
+    @user_attend_event = user_attend_event?
+    @user_has_mate = user_has_mate?
+  end
+
+  def user_got_interests?
+    interest = UserInterest.where(user_id: current_user.id)
+    interest.present?
+  end
+
+  def user_attend_event?
+    attend_event = UserEvent.where(user_id: current_user.id, attendance: true)
+    attend_event.present?
+  end
+
+  def user_has_mate?
+    match = Match.find_by(buddy_id: current_user.id)
+    match.present?
   end
 
   private

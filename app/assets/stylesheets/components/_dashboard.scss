@@ -1,17 +1,21 @@
 .dashboard-message {
-  display: block;
+  display: flex;
   text-align: center;
   align-items: center;
-  padding: 29px 7px;
+  padding: 20px 7px;
     /* border-bottom: 1px solid #7BBBE3; */
-    background-color: #87bddb;
+    background-color: #ceedff;
+    color: #508db059;
     margin-bottom: 1%;
     /* margin-right: 15%; */
     /* margin-left: 15%; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 2px;
     flex: 0 0 26%;
+
 }
+
+
 .dashboard-message:last-child {
   border-bottom: none;
 }
@@ -42,8 +46,8 @@
   padding-left: 20px;
   color: rgba(0,0,0,0.4);
 }
-.dashboard-message-body strong{
-  color: rgb(70,70,70);
+.dashboard-message-body strong {
+        color: #508db08f;
 }
 .dashboard-message-body p {
   margin: 6px 0;
