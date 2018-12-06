@@ -46,23 +46,88 @@ interest_list.each do |key, value|
   end
 end
 
+american_football = Interest.find_by(variant: "American Football")
+
 puts 'Creating users'
-user_list = [
-  ["Kaylin", "Bittner", "kaylin@bittner.de", "KaylinBittner", "KaylinBittner", "https://kitt.lewagon.com/placeholder/users/kaylinbittner", "Berlin", "1990-05-21", "buddy", "I love listening, talking, discussing, debating, storytelling, deliberating, conversing and all the other varieties of thought exchange between people. I would love discussing with you about our favorite sports,films, books and much more. I am looking forward to meeting you!", 2, 15, 25],
-  ["Elena", "Tamayo", "elena@tamayo.com", "ElenaTamayo", "ElenaTamayo", "https://kitt.lewagon.com/placeholder/users/elenatamayo", "Berlin", "1995-04-18", "patient", "I love listening, talking, discussing, debating, storytelling, deliberating, conversing and all the other varieties of thought exchange between people. I would love discussing with you about our favorite sports,films, books and much more. I am looking forward to meeting you!", 5, 25, 35],
-  ["Fritz", "Meyer", "fritz@meyer.com", "FritzMeyer", "FritzMeyer", "https://kitt.lewagon.com/placeholder/users/meyerfr", "Berlin", "2000-02-04", "coordinator","I love listening, talking, discussing, debating, storytelling, deliberating, conversing and all the other varieties of thought exchange between people. I would love discussing with you about our favorite sports,films, books and much more. I am looking forward to meeting you!", 3, 22, 39],
-  ["Trond", "Stern", "trond@stern.com", "TrondStern","TrondStern","https://kitt.lewagon.com/placeholder/users/TheTresckow", "Berlin", "31-08-1992", "buddy", "I love listening, talking, discussing, debating, storytelling, deliberating, conversing and all the other varieties of thought exchange between people. I would love discussing with you about our favorite sports,films, books and much more. I am looking forward to meeting you!", 2, 15, 25 ]
-]
 
-user_list.each do |first_name, last_name, email, password, password_confirmation, url, city, date_of_birth, role, bio, interests_id1, interests_id2, interests_id3|
-  user = User.new(first_name: first_name, last_name: last_name, email: email, password: password, password_confirmation: password_confirmation, city: city, date_of_birth: date_of_birth, role: role, bio: bio)
-  user.remote_photo_url = url
-  user.interests << Interest.find(interests_id1)
-  user.interests << Interest.find(interests_id2)
-  user.interests << Interest.find(interests_id3)
-  user.save
 
-end
+
+
+kaylin = User.create!({ first_name: "Kaylin", last_name: "Bittner", email: "kaylin@bittner.de", password: "KaylinBittner", password_confirmation: "KaylinBittner", city: "Berlin", date_of_birth: "21-05-1990", role: "buddy", bio: "I am passionate about futball. I love practising sports but also watching them and discussing the results with friends. I also like watching movies,hanging out and having fun." })
+kaylin.remote_photo_url = "https://kitt.lewagon.com/placeholder/users/kaylinbittner"
+kaylin.save
+football = Interest.find_by(variant: "Football")
+fiction = Interest.find_by(variant: "Historical Fiction")
+baseball = Interest.find_by(variant: "Baseball")
+
+UserInterest.create!(user: kaylin, interest: football)
+UserInterest.create!(user: kaylin, interest: fiction)
+UserInterest.create!(user: kaylin, interest: baseball)
+
+
+
+
+
+elena = User.create!({ first_name: "Elena", last_name: "Tamayo", email: "elena@tamayo.com", password: "ElenaTamayo", password_confirmation: "ElenaTamayo", city: "Berlin", date_of_birth: "18-04-1995", role: "buddy", bio: "I am passionate about futball. I love practising sports but also watching them and discussing the results with friends. I also like watching movies,hanging out and having fun." })
+elena.remote_photo_url = "https://kitt.lewagon.com/placeholder/users/elenatamayo"
+elena.save
+football = Interest.find_by(variant: "Football")
+fiction = Interest.find_by(variant: "Historical Fiction")
+baseball = Interest.find_by(variant: "Baseball")
+
+UserInterest.create!(user: elena, interest: football)
+UserInterest.create!(user: elena, interest: fiction)
+UserInterest.create!(user: elena, interest: baseball)
+
+
+
+
+
+fritz = User.create!({ first_name: "Fritz", last_name: "Meyer", email: "fritz@meyer.com", password: "FritzMeyer", password_confirmation: "FritzMeyer", city: "Berlin", date_of_birth: "04-02-2000", role: "coordinator", bio: "I am passionate about futball. I love practising sports but also watching them and discussing the results with friends. I also like watching movies,hanging out and having fun." })
+fritz.remote_photo_url = "https://kitt.lewagon.com/placeholder/users/meyerfr"
+fritz.save
+
+football = Interest.find_by(variant: "Football")
+fiction = Interest.find_by(variant: "Historical Fiction")
+baseball = Interest.find_by(variant: "Baseball")
+
+UserInterest.create!(user: fritz, interest: football)
+UserInterest.create!(user: fritz, interest: fiction)
+UserInterest.create!(user: fritz, interest: baseball)
+
+
+
+
+
+brayan = User.create!({ first_name: "Brayan", last_name: "Rogers", email: "brayan@rogers.com", password: "BrayanRogers", password_confirmation: "BrayanRogers", city: "Berlin", date_of_birth: "02-11-1992", role: "patient", bio: "I like sports and I especially love football. I love playing football but also watching it and spending hours talking with friends about the best games, teams and players. I also enjoy playing golf, watching movies and hanging out." })
+brayan.remote_photo_url = "https://res.cloudinary.com/dqssam2go/image/upload/v1544106931/images_5.jpg"
+brayan.save
+
+football = Interest.find_by(variant: "Football")
+golf = Interest.find_by(variant: "Golf")
+comedy = Interest.find_by(variant: "Comedy")
+
+UserInterest.create!(user: brayan, interest: football)
+UserInterest.create!(user: brayan, interest: golf)
+UserInterest.create!(user: brayan, interest: comedy)
+
+
+
+
+
+trond = User.create!({ first_name: "Trond", last_name: "Stern", email: "trond@stern.com", password: "TrondStern", password_confirmation: "TrondStern", city: "Berlin", date_of_birth: "31-08-1992", role: "buddy", bio: "I am passionate about football but I also enjoy playing golf. I love watching football games and in general I enjoy talking about sports." })
+trond.remote_photo_url = "https://kitt.lewagon.com/placeholder/users/TheTresckow"
+trond.save
+
+football= Interest.find_by(variant: "Football")
+adventure = Interest.find_by(variant: "Adventure")
+golf = Interest.find_by(variant: "Golf")
+
+UserInterest.create!(user: trond, interest: football)
+UserInterest.create!(user: trond, interest: adventure)
+UserInterest.create!(user: trond, interest: golf)
+
+
 
 
 
@@ -74,13 +139,12 @@ event_list = [
   ["Weekly Buddy - Meetup", "23-11-2018 18:00:00", "23-11-2018  20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits.I hope you can come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
   ["Weekly Buddy - Meetup", "30-11-2018 18:00:00", "30-11-2018 20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits." "Forsmannstrasse 7, 20095 Hamburg","1"],
   ["Weekly Buddy - Meetup", "07-12-2018 18:00:00", "07-12-2018 20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. Looking forward to meet you.", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["Cinema meetup", "08-12-2018 18:00:00","08-12-2018 18:00:00", "Hello guys I would like to invite you to watch the film Dieses bescheuerte Herz  all together and meet new people. I hope you can all come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["Caspar Christmas", "09-12-2018 15:00:00", "09-12-2018 18:00:00", "Hello guys, I am exited to invite you for a stroll over the Hamburg Christmas market and meet new people. Looking forward to see you all there.", "Weihnachtsmarkt auf dem Rathausmarkt, Hamburg","1"],
+  ["Cinema Meetup", "08-12-2018 18:00:00","08-12-2018 21:00:00", "Hello guys I would like to invite you to watch the film Dieses bescheuerte Herz  all together and meet new people. I hope you can all come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
+  ["Caspar Christmas", "09-12-2018 15:00:00", "09-12-2018 18:00:00", "Hello guys, I am exited to invite you for a stroll over the Hamburg Christmas market. Looking forward to see you all there.", "Weihnachtsmarkt auf dem Rathausmarkt, Hamburg","1"],
   ["Weekly Buddy - Meetup", "14-12-2018 18:00:00", "14-12-2018 20:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. I hope you can come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
-  ["All hands meeting", "16-12-2018 18:00:00", "16-12-2018 20:30:00", "Hello guys I would like to invite you to our buddy closing event for this year. We want to bring everyone in to talk about what we managed to achieve over the past weeks. See you guys there!", "Neuer Kamp 30, 20357 Hamburg","1"],
+  ["All hands meeting", "16-12-2018 18:00:00", "16-12-2018 20:30:00", "Hello guys I would like to invite you to our buddy closing event for this year. We want to bring everyone in to talk about what we managed to achieve over the past weeks. See you guys there!", "Neuer Kamp 30, 20357 Hamburg","1"]
   # ["Weekly Buddy - Meetup", "2018-12-14 18:00:00", "2018-11-25 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. I hope you can come.", "Forsmannstrasse 7, 20095 Hamburg","1"],
   # ["Weekly Buddy - Meetup", "2018-12-21 18:00:00", "2018-12-03 22:00:00", "Hello guys I want to invite you to our weekly meetup. I want to catch up on your last visits. This will be the last time we will meet before X-Mas", "Forsmannstrasse 7, 20095 Hamburg","1"],
-
 ]
 
 # event_list.each do |key, value|
