@@ -4,8 +4,8 @@ Rails.application.configure do
   config.webpacker.check_yarn_integrity = false
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.action_cable.url = "wss://www.herzcaspar.app/cable"
-  config.action_cable.allowed_request_origins = [ "http://www.herzcaspar.app", "https://www.herzcaspar.herokuapp.com" ]
+  config.action_cable.url = "wss://herzcaspar.herokuapp.com"
+  config.action_cable.allowed_request_origins = [ "http://www.herzcaspar.app", "https://herzcaspar.herokuapp.com", "http://herzcaspar.herokuapp.com" ]
 
   # Code is not reloaded between requests.
   config.cache_classes = true
