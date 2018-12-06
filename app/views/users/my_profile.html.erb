@@ -1,5 +1,6 @@
-<div class="background" style="background-image: url('https://res.cloudinary.com/dsolsmeep/image/upload/v1544091706/dakota.jpg');">
-<div class="background" style="background-image: url();">
+<div class="background" style="background-color: #6ed2ff;
+    background-image: linear-gradient(540deg, rgb(255, 255, 255) 24%, rgba(255, 255, 255, 0.54)), url(https://res.cloudinary.com/dsolsmeep/image/upload/v1544091706/dakota.jpg);">
+
   <div class="profile-content">
     <!-- start of tabs -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -27,11 +28,14 @@
     <!-- end of tabs -->
     <div class="tab-content" id="myTabContent">
 
+
       <div class="tab-pane fade active in " id="home" role="tabpanel" aria-labelledby="home-tab">
+        <h1 class="title-profile">Follow These Steps!</h1>
         <%= render 'shared/dashboard', user: current_user %>
       </div>
 
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <h1 class="title-profile">Calendar</h1>
         <%= render 'events/index' %>
       </div>
 

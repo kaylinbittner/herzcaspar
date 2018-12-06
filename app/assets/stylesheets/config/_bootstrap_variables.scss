@@ -6,7 +6,7 @@
 // General style
 $font-family-roboto:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+
 $font-size-base: 18px;
 
 // Colors
@@ -38,6 +38,8 @@ $border-radius-small: 2px;
 .custom-select.is-invalid {
   border-color: $red;
 }
+
+
 
 .was-validated .form-control:invalid ~ .invalid-feedback,
 .was-validated .form-control:invalid ~ .invalid-tooltip,

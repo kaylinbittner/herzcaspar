@@ -10,10 +10,10 @@
 
 
 .home-banner-gradient-shadow {
-  background-image: linear-gradient(50deg, transparent 0%, rgba(0, 0, 0, 0.8) 60%);
-  opacity: 0.9;
-  height: 100vh;
-  filter: alpha(opacity=5);
+    background-image: linear-gradient(50deg, transparent 0%, rgba(0, 0, 0, 0.43) 60%);
+    /* opacity: 0.9; */
+    height: 100vh;
+    filter: alpha(opacity=5);
 }
 
 .home-main-header {
