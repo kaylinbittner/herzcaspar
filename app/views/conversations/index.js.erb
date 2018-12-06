@@ -1,4 +1,5 @@
 function showAllConversations(innerHTML) {
+  openChat();
   setUpQuit();
   const allConversations = document.getElementById('chat');
   allConversations.innerHTML = innerHTML;
@@ -26,14 +27,11 @@ function setUpQuit(){
 }
 
 function openChat(){
-  var chatQuit = document.querySelector('.quit-chat');
-  var chatWindow = document.querySelector('.chat-window');
-  var testId = document.getElementById('test');
+  var getInTouchButton = document.getElementById('getInTouch')
   var chat = document.getElementById('chat');
-  testId.classList.toggle("test-id-closed");
-  chatWindow.classList.toggle("chat-window-closed");
-  chat.classList.toggle("chat-closed");
-  chatQuit.classList.toggle("quit-chat-closed");
+  getInTouchButton.addEventListener('click', function(){
+    chat.classList.toggle("chat-closed");
+  })
 }
 
 showAllConversations("<%= j render 'shared/conversation', conversations: @conversations, users: @users %>");

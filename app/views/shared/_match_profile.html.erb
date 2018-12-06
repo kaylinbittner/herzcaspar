@@ -16,9 +16,9 @@
         <p class="profile-info"><i class="fas fa-birthday-cake"></i> <%= user.date_of_birth.strftime("%d-%m-%y") %></p>
         <p class="profile-info"><i class="fas fa-user-friends"></i> since <%=user.created_at.strftime("%d-%m-%y") %></p>
         <% if @conversation.present? %>
-          <%= link_to 'Get in touch', conversation_path(conversation), remote: true, class: 'next-button' %>
+          <%= link_to 'Get in touch', conversation_path(conversation), remote: true, class: 'next-button', id: 'getInTouch' %>
         <% else %>
-          <%= link_to 'Get in touch', conversations_path, method: post, remote: true, class: 'next-button' %>
+          <%= link_to 'Get in touch', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', remote: true, class: 'next-button' %>
         <% end %>
       </div>
     </div>
