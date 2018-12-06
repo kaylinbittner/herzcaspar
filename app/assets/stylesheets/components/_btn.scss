@@ -1,6 +1,6 @@
 .home-container {
   .next-button {
-      padding: 22px 30px;
+    padding: 22px 30px;
     /* border-radius: 4px; */
     font-family: Roboto;
     /* border-radius: 10px; */
@@ -15,23 +15,23 @@
 }
 
 .icon-down {
-      font-weight: 900;
-    position: absolute;
-    left: 210px;
-    color: #508db057;
-    bottom: 38px;
+  font-weight: 900;
+  position: absolute;
+  left: 210px;
+  color: #508db057;
+  bottom: 38px;
 
 }
 
 .icon-down-2 {
   position: absolute;
-    right: 20px;
-    bottom: 38px;
-    color: #508db057;
+  right: 20px;
+  bottom: 38px;
+  color: #508db057;
 }
 
 .next-button {
-      padding: 22px 30px;
+  padding: 22px 30px;
     /* border-radius: 4px; */
     font-family: Roboto;
     /* border-radius: 10px; */
@@ -39,61 +39,61 @@
     color: white;
     text-align: center !important;
     text-decoration: none;
-  margin-top: 1%;
-  display: inline-block;
-}
+    margin-top: 1%;
+    display: inline-block;
+  }
 
-.home {
-  font-size: 30px;
-  font-weight: bold;
-}
+  .home {
+    font-size: 30px;
+    font-weight: bold;
+  }
 
-.next-button:hover {
-  opacity: 0.8;
-  text-decoration: none !important;
-  color: white;
-}
+  .next-button:hover {
+    opacity: 0.8;
+    text-decoration: none !important;
+    color: white;
+  }
 
-.next-button:active {
-  text-decoration: none !important;
-}
+  .next-button:active {
+    text-decoration: none !important;
+  }
 
-.next-button:visited {
-  text-decoration: none !important;
-}
+  .next-button:visited {
+    text-decoration: none !important;
+  }
 
 
-.btn-f {
- padding: 10px 20px;
- border-radius: 4px;
- font-family: Roboto;
- border-radius: 10px;
- background-color:#A31636;
- color: white;
- text-align: center !important;
- text-decoration: none;
-}
+  .btn-f {
+    padding: 22px 30px;
+    font-family: Roboto;
+    background-color: $red;
+    color: white;
+    text-align: center !important;
+    text-decoration: none;
+    margin-top: 1%;
+    display: inline-block;
+  }
 
-.btn-f:hover {
-  opacity: 0.8;
-  text-decoration: none;
-  color: white;
-  background-color:#A31636;
-}
+  .btn-f:hover {
+    opacity: 0.8;
+    text-decoration: none;
+    color: white;
+    background-color:#A31636;
+  }
 
-.btn-m {
-  padding: 2px 5px;
-  border-radius: 4px;
-  font-family: Roboto;
-  border-radius: 5px;
-  background-color:#7BBBE3;
-  color: white;
-  text-align: center !important;
-  text-decoration: none;
-}
+  .btn-m {
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: Roboto;
+    border-radius: 5px;
+    background-color:#7BBBE3;
+    color: white;
+    text-align: center !important;
+    text-decoration: none;
+  }
 
-.btn-m:hover {
-  opacity: 0.8;
-  text-decoration: none !important;
-  color: white;
-}
+  .btn-m:hover {
+    opacity: 0.8;
+    text-decoration: none !important;
+    color: white;
+  }
