@@ -31,14 +31,14 @@
               <% user = User.find(mess.user_id) %>
               <div class="messagecontainer">
                 <% if mess.user_id == current_user.id %>
-                  <div class="messfirst">
+                  <div class="message messfirst">
                     <div class="my-avatar" style="background-image: url(<%= mess.user.photo %>)">
                     </div>
                     <p class="message-body my-message"><%= mess.body %></p>
                   </div>
                   <p class="my-time"><%= mess.message_time %></p>
                 <% else %>
-                  <div class="messsecond">
+                  <div class="message messsecond">
                     <div class="not-my-avatar" style="background-image: url(<%= mess.user.photo %>)"></div>
                     <p class="message-body"><%= mess.body %></p>
                   </div>
@@ -50,7 +50,7 @@
         </div>
       </div>
       <div id="chat-input">
-        <%= simple_form_for([conversation, message], remote: true) do |f| %>
+        <%= simple_form_for([@conversation, Message.new], remote: true) do |f| %>
           <%= f.text_field :body, class: "input-message" %>
           <%= f.text_field :user_id, value: current_user.id, type: "hidden"%>
           <%= f.submit value: "Send", class: "send-button" %>

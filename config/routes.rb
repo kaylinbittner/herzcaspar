@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+  # mount ActionCable.server => "/cable"
+
+
   resources :events
   resources :user_events, only: :update
 
