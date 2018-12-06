@@ -12,6 +12,7 @@
   right: 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 10;
+  margin-right: 25px;
 }
 
 .chat-closed{
@@ -28,6 +29,7 @@
 .list-wrapper {
   height: 300px;
   overflow: scroll;
+  font-size: 25px;
   .list-item {
     padding-left: 5%;
     padding-top: 2%;
@@ -39,12 +41,12 @@
     }
   }
   .item {
-    display: flex;
     justify-content: space-between;
-    margin-bottom: 2%;
+    margin-bottom: 4%;
     display: flex;
     flex-direction: row;
     justify-content: start;
+    align-items: center;
     a {
       text-decoration: none;
       color: gray;
@@ -71,7 +73,7 @@
   padding: 6px 10px 7px;
   height: fit-content;
   margin-right: 5px;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.4;
   color: white;
   background-color: #A8D0DB;
@@ -82,12 +84,14 @@
   text-align: left;
   margin-bottom: 0;
   margin-left: auto;
+  padding-right: 4px;
 }
 .my-time {
   font-size: 10px;
   text-align: right;
   margin-bottom: 0;
   margin-right: auto;
+  padding-left: 4px;
 }
 
 #test {
@@ -172,12 +176,12 @@
   }
   img{
     z-index: 1;
-    height: 80px;
-    width: 80px;
+    height: 85px;
+    width: 85px;
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 1);
-        position: absolute;
-    top: -30px;
+    position: absolute;
+    top: -62px;
   }
   h2{
     margin:0 !important;
@@ -193,7 +197,7 @@
   border-radius: 20px 20px 20px 0;
   background: #eee; /*rgba(0, 0, 0, 0.1);*/
   margin: 8px 0;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.4;
   margin-left: 5px;
   position: relative;
@@ -227,14 +231,14 @@
     border-radius: 5px;
   }
   .my-avatar {
-    height: 20px;
-    width: 20px;
+    height: 23px;
+    width: 23px;
     border-radius: 50%;
     background-size: cover;
   }
   .not-my-avatar {
-    height: 20px;
-    width: 20px;
+    height: 23px;
+    width: 23px;
     border-radius: 50%;
     background-size: cover;
   }
@@ -252,7 +256,7 @@
 
 .input-message {
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 17px;
 }
 
 .send-button {
@@ -263,8 +267,8 @@
 }
 
 .convo-avatar {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
     background-size: cover;
     margin-right: 10px;

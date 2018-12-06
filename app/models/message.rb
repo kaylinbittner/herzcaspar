@@ -5,7 +5,7 @@ class Message < ApplicationRecord
 
   validates_presence_of :body
   def message_time
-    created_at.strftime("%m/%d/%y at %l:%M %p")
+    created_at.strftime("%l:%M %p")
   end
 
   # ...
