@@ -27,7 +27,7 @@ $(document).ready(function() {
           var id = calEvent.id
           // console.log(id);
           var attend = (event) => {
-            fetch(`http://herzcaspar.herokuapp.com/user_events/${id}`, {
+            fetch(`https://herzcaspar.herokuapp.com/user_events/${id}`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json"
@@ -38,7 +38,7 @@ $(document).ready(function() {
           }
 
           var dismiss = (event) => {
-            fetch(`http://herzcaspar.herokuapp.com/user_events/${id}`, {
+            fetch(`https://herzcaspar.herokuapp.com/user_events/${id}`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json"
