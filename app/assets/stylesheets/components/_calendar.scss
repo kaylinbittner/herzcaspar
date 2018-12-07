@@ -1,11 +1,19 @@
+#calendar{
+  overflow: scroll;
+  height: 64vh;
+}
+
 .calendar-container {
-  margin: 5% 10%;
+  margin: 2% 10% 0 10%;
   h2 {
     color: #508db0;
     font-weight: bolder;
   }
 }
 
+.title-calendar{
+  margin-bottom: 0;
+}
 
 .fc-center {
   color: $red;
