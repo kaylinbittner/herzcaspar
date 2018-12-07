@@ -23,41 +23,44 @@ a {
 }
 
 
-   .nav-tabs, .nav-pills {
-    text-align:center;
-  }
+ .nav-tabs, .nav-pills {
+  text-align:center;
+}
 
-  .nav-tabs{
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-  .tab-content{
-    background-color: rgba(255,255,255,0.5);
-    padding: 5px;
-    height: 80vh;
-    overflow: scroll;
-  }
+.nav-tabs{
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.tab-content{
+  padding: 5px;
+}
 
-  .title-profile {
-    margin-bottom: 25px;
-    font-weight: 200;
-    font-size: 37px !important;
-    text-align: center;
-    color: grey;
+.title-profile {
+  margin-bottom: 25px;
+  font-weight: 200;
+  font-size: 37px !important;
+  text-align: center;
+  color: grey;
+}
+
+#home {
+  &.active {
+
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px 89px;
+  align-content: space-between;
+  height: 510px;
   }
+}
 
-  #home {
-    &.active {
-
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px 89px;
-    align-content: space-between;
-    height: 510px;
-    }
+#myMateButton {
+  a {
+    font-weight: 600;
+    color: #3b8eb4;
   }
-
+}
 
 .nav-tabs {
     border-bottom: none;
@@ -80,13 +83,11 @@ a {
   }
 
   .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-    color: #508db0;
     border: solid 3px #508db0;
     background-color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: bold;
   }
-
 
 
   .nav-link {

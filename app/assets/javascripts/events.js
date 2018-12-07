@@ -20,6 +20,7 @@ $(document).ready(function() {
           center: 'title',
           right: 'listWeek,listMonth'
         },
+        firstDay: 1,
         events: json,
 
         eventClick:  function(calEvent) {
