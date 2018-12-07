@@ -157,3 +157,5 @@ events = Event.all
 events.each do |event|
   UserEvent.create!(user: x, event: event)
 end
+
+Conversation.create(sender_id: trond.id, recipient_id: brayan.id)

@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   private
 
   def set_messages
-    @conversation = Conversation.find_by(id: params[:conversation_id]) || Conversation.first
+    @conversation = Conversation.find 12
     if !@conversation.nil?
       @messages = @conversation.messages
       if @messages.length > 10

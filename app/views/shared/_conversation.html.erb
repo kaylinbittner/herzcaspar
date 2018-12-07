@@ -23,7 +23,7 @@
                   </div>
                   <% full_name = "#{recipient.first_name} #{recipient.last_name}" %>
                   <% conversations_array.push(recipient.id) %>
-                  <%= link_to full_name, conversation, remote: true %>
+                  <%= link_to full_name, conversation_path(conversation), remote: true %>
                 </div>
               <% end %>
             <% end %>
@@ -60,7 +60,7 @@
     </div>
   </div>
 </div>
-<% if !@conversation.nil? %>
+
   <% content_for :after_js do %>
     <script>
       scrollLastMessageIntoView();
@@ -76,6 +76,4 @@
           }
         })
     </script>
-  <% end %>
 <% end %>
-
